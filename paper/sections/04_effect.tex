@@ -1,0 +1,16 @@
+\section{Effect of Evaluation Bias on Reported Performance}\label{sec:effect}
+In this section, we provide two simple examples that illustrate how label ambiguity and temporal structure change the reported performance, and we provide intuition on why evaluation protocols differ in difficulty.
+
+\subsection{Label Ambiguity}
+Consider a feature vector $v$ that occurs 60 times with label $a$ and 40 times with label $b$ in a test set. A classifier assigns a single label to $v$, and therefore it classifies at most 60 of these 100 samples correctly. The contribution of $v$ to the accuracy is bounded by 0.6, independent of the learning algorithm and of the search effort. If such vectors cover a substantial share of the file, as in the traffic data, the same bound applies to the overall score.
+
+On the raw data of device 9, the bound of Equation~\eqref{eq:ceiling} is 0.718. The best method reaches 0.711 (Section~\ref{sec:evaluation}), which is 99\% of the bound. In this regime, a ranking of frameworks reflects tie-breaking between labels of ambiguous vectors and not the ability to detect anomalies.
+
+\textbf{Interpretation:} Ambiguity changes the meaning of a score, because the achievable accuracy depends on the file and not on the classifier. A high accuracy on a file with ambiguous vectors indicates that the classifier learned the majority labels, and a low accuracy does not necessarily indicate a classifier of low quality. Duplicated records enlarge this effect, because the majority label of an ambiguous vector is then repeated in both partitions.
+
+\subsection{Temporal Structure}
+Consider a recording that is divided into blocks of consecutive samples. Under a random protocol, a test sample at time $t$ has training neighbors at $t-1$ and $t+1$. If neighboring measurements are similar, a classifier can interpolate between neighbors and achieves a high score without learning the boundaries between operating conditions. Under a block protocol, the neighbors of a test block are absent from the training set, and the classifier must generalize to operating conditions that it has not observed.
+
+A preliminary probe on MEMS illustrates the size of this effect for a single learning algorithm. A random forest with 100 trees and a maximum depth of 10 reaches an accuracy of 0.71 and a macro-F1 of 0.66 under a random 70/30 split. When whole blocks are held out in five-fold validation, the values fall to $0.54\pm0.12$ and $0.35\pm0.10$.
+
+\textbf{Interpretation:} Both effects inflate the reported performance independent of the framework. A comparison of frameworks is therefore meaningful only after the protocol has been audited and fixed. We implement this requirement in the pipeline of the next section.

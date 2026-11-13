@@ -1,0 +1,11 @@
+dataset,rows_raw,ambiguous_vectors,rows_in_ambiguous_vectors_pct,ceiling_accuracy,ceiling_balanced_accuracy
+mems,21576,6,0.1,1.0,1.0
+nbaiot:1,220000,5,43.4,0.689,0.689
+nbaiot:2,132000,6,40.3,0.719,0.719
+nbaiot:3,120000,5,39.1,0.833,0.833
+nbaiot:4,220000,8,43.3,0.689,0.689
+nbaiot:5,220000,6,47.4,0.648,0.648
+nbaiot:6,220000,7,47.0,0.652,0.652
+nbaiot:7,120000,7,39.3,0.833,0.833
+nbaiot:8,220000,10,39.9,0.724,0.724
+nbaiot:9,209000,11,40.5,0.718,0.718

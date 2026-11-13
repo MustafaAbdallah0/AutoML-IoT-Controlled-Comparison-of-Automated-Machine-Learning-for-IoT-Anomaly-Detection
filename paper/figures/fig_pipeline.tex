@@ -1,0 +1,22 @@
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=0.5cm and 0.45cm,
+  box/.style={draw=black!65, rounded corners=3pt, fill=black!5, text width=2.12in, align=left, inner sep=4pt, font=\scriptsize},
+  arr/.style={-{Stealth[length=5pt]}, thick, draw=black!70}
+]
+\node[box] (s1) {\textbf{Step 1: Data audit.} Duplicates, label-ambiguous vectors, accuracy ceiling, and label blocks as inferred sessions. Output: raw and cleaned data.};
+\node[box, right=of s1] (s2) {\textbf{Step 2: Protocol construction.} Random and block splits, raw and cleaned data, training distribution, and fixed seeds. Output: identical training and test arrays.};
+\node[box, right=of s2] (s3) {\textbf{Step 3: Controlled search.} Auto-sklearn, H2O AutoML, and default baselines under identical data, budget, and threads. Output: selected models.};
+\node[box, below=0.75cm of s3] (s4) {\textbf{Step 4: Measurement.} Macro-averaged quality metrics, per-class recall, memory, model size, and latency. Output: per-run records.};
+\node[box, left=of s4] (s5) {\textbf{Step 5: Explanation.} Permutation importance of the selected models and agreement between frameworks. Output: feature rankings.};
+\node[box, left=of s5] (s6) {\textbf{Step 6: Paired comparison.} Differences by seed, summary tables, and recommendations. Output: guidance for model selection.};
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\draw[arr] (s5) -- (s6);
+\end{tikzpicture}
+\caption{A high-level overview of AutoML-IoT. A labeled IoT dataset passes through six consecutive steps that produce comparable records for every method.}
+\label{fig:pipeline}
+\end{figure*}

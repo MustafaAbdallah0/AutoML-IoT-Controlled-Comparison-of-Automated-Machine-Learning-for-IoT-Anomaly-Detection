@@ -1,0 +1,234 @@
+{
+  "tag": "mems__random__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 1,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "random",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 1,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "random",
+    "seed": 1,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 15103,
+    "n_train": 15103,
+    "n_test": 6473,
+    "train_counts": {
+      "class_1": 7675,
+      "class_2": 4041,
+      "class_3": 3387
+    },
+    "test_counts": {
+      "class_1": 3290,
+      "class_2": 1732,
+      "class_3": 1451
+    }
+  },
+  "metrics": {
+    "accuracy": 0.7154333384829291,
+    "balanced_accuracy": 0.677372509959321,
+    "macro_precision": 0.704660446134388,
+    "macro_recall": 0.677372509959321,
+    "macro_f1": 0.6856108594705285,
+    "weighted_f1": 0.7080840576513635,
+    "mcc": 0.5312852778853124
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.7076213723894765,
+      "recall": 0.7930091185410334,
+      "f1": 0.7478859108499355,
+      "support": 3290
+    },
+    "class_2": {
+      "precision": 0.7941345600920069,
+      "recall": 0.7973441108545035,
+      "f1": 0.7957360991068857,
+      "support": 1732
+    },
+    "class_3": {
+      "precision": 0.612225405921681,
+      "recall": 0.44176430048242593,
+      "f1": 0.5132105684547639,
+      "support": 1451
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      2609,
+      276,
+      405
+    ],
+    [
+      350,
+      1381,
+      1
+    ],
+    [
+      728,
+      82,
+      641
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1833.2,
+    "peak_rss_mb": 6931.7,
+    "peak_cpu_percent": 132.0,
+    "n_models_evaluated": 701,
+    "model_size_mb": 478.65,
+    "predict_latency_ms_per_sample": 0.3272
+  },
+  "model_info": {
+    "n_ensemble_members": 22,
+    "members": [
+      {
+        "weight": 0.2,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.14,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.12,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LibLinear_SVC"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: e0a084b2-bf23-11f1-9cdb-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.691091 |   Number of target algorithm runs: 700 |   Number of successful target algorithm runs: 665 |   Number of crashed target algorithm runs: 13 |   Number of target algorithms that exceeded the time limit: 8 |   Number of target algorithms that exceeded the memory limit: 14 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-03T12:44:20",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

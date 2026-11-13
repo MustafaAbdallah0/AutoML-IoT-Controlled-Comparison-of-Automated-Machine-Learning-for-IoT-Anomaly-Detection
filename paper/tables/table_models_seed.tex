@@ -1,0 +1,42 @@
+\begin{table*}[t]
+\centering
+\caption{Selected models for every seed. H2O AutoML: identifier of the leaderboard leader. Auto-sklearn: number of ensemble members and weight share per model type.}
+\label{tab:modelsseed}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llp{2.1in}cp{1.9in}@{}}
+\toprule
+Setup & Seed & H2O AutoML: leader & Auto-sklearn: members & Auto-sklearn: weight share, top three types \\
+\midrule
+MEMS, random split & 0 & \texttt{StackedEnsemble\_BestOfFamily\_5} & 19 & AdaBoost 38\%, random forest 26\%, MLP 18\% \\
+ & 1 & \texttt{StackedEnsemble\_AllModels\_5} & 22 & LDA 98\%, linear SVC 2\% \\
+ & 2 & \texttt{GBM\_grid\_1} & 21 & linear SVC 74\%, LDA 26\% \\
+ & 3 & \texttt{StackedEnsemble\_AllModels\_5} & 11 & LDA 100\% \\
+ & 4 & \texttt{StackedEnsemble\_AllModels\_5} & 14 & LDA 100\% \\
+\midrule
+MEMS, block split & 0 & \texttt{StackedEnsemble\_AllModels\_5} & 11 & LDA 96\%, MLP 2\%, linear SVC 2\% \\
+ & 1 & \texttt{StackedEnsemble\_BestOfFamily\_4} & 25 & extra trees 54\%, MLP 46\% \\
+ & 2 & \texttt{GBM\_grid\_1} & 8 & LDA 100\% \\
+ & 3 & \texttt{XGBoost\_lr\_search\_selection} & 18 & extra trees 46\%, linear SVC 34\%, LDA 10\% \\
+ & 4 & \texttt{XGBoost\_grid\_1} & 24 & MLP 54\%, LDA 46\% \\
+\midrule
+MEMS, block split with oversampling & 0 & \texttt{StackedEnsemble\_AllModels\_3} & 12 & $k$-NN 100\% \\
+ & 1 & \texttt{StackedEnsemble\_AllModels\_3} & 7 & AdaBoost 70\%, extra trees 14\%, gradient boosting 10\% \\
+ & 2 & \texttt{StackedEnsemble\_BestOfFamily\_4} & 23 & gradient boosting 54\%, $k$-NN 26\%, extra trees 20\% \\
+ & 3 & \texttt{StackedEnsemble\_BestOfFamily\_4} & 24 & $k$-NN 100\% \\
+ & 4 & \texttt{StackedEnsemble\_AllModels\_3} & 11 & extra trees 56\%, gradient boosting 34\%, random forest 10\% \\
+\midrule
+Device 9, deduplicated & 0 & \texttt{GBM\_4} & 23 & random forest 100\% \\
+ & 1 & \texttt{GBM\_4} & 15 & random forest 80\%, gradient boosting 20\% \\
+ & 2 & \texttt{GBM\_3} & 19 & random forest 100\% \\
+ & 3 & \texttt{GBM\_4} & 21 & random forest 100\% \\
+ & 4 & \texttt{GBM\_1} & 23 & random forest 78\%, $k$-NN 22\% \\
+\midrule
+Device 9, raw & 0 & \texttt{StackedEnsemble\_BestOfFamily\_3} & 13 & random forest 78\%, gradient boosting 22\% \\
+ & 1 & \texttt{StackedEnsemble\_BestOfFamily\_3} & 21 & random forest 62\%, gradient boosting 38\% \\
+ & 2 & \texttt{StackedEnsemble\_AllModels\_1} & 23 & random forest 62\%, gradient boosting 38\% \\
+ & 3 & \texttt{StackedEnsemble\_AllModels\_2} & 15 & random forest 100\% \\
+ & 4 & \texttt{StackedEnsemble\_AllModels\_2} & 18 & random forest 72\%, gradient boosting 28\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

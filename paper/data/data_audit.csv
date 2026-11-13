@@ -1,0 +1,11 @@
+dataset,classes,rows_raw,rows_unique,duplicate_pct,min_unique_per_class,classes_lt50_unique,runs,median_run_len
+mems,3,21576,21551,0.1,4832,,15.0,1423.0
+nbaiot:1,11,220000,116635,47.0,17,"class_10,class_9,class_8",,
+nbaiot:2,11,132000,76786,41.8,11,"class_8,class_11",,
+nbaiot:3,6,120000,68937,42.6,23,"class_1,class_4",,
+nbaiot:4,11,220000,123680,43.8,12,"class_6,class_1,class_8",,
+nbaiot:5,11,220000,113767,48.3,22,"class_11,class_6",,
+nbaiot:6,11,220000,114335,48.0,14,"class_3,class_7",,
+nbaiot:7,6,120000,66652,44.5,19,"class_5,class_2",,
+nbaiot:8,11,220000,127915,41.9,17,"class_3,class_10",,
+nbaiot:9,11,209000,117073,44.0,9,"class_4,class_3",,

@@ -1,0 +1,377 @@
+{
+  "tag": "nbaiot9__random__full__h2o",
+  "framework": "h2o",
+  "dataset": "nbaiot:9",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 4,
+  "config": {
+    "framework": "h2o",
+    "dataset": "nbaiot:9",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "random",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 4,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": true,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "nbaiot:9",
+    "kind": "nbaiot",
+    "device": 9,
+    "dedup": true,
+    "rows_raw": 209000,
+    "rows_after_exact_dedup": 117115,
+    "conflict_rows_removed": 42,
+    "rows_final": 117073,
+    "split": "random",
+    "seed": 4,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 20,
+    "n_train_before_dist": 81951,
+    "n_train": 81951,
+    "n_test": 35122,
+    "train_counts": {
+      "class_9": 13299,
+      "class_10": 13296,
+      "class_2": 10162,
+      "class_11": 9941,
+      "class_7": 9904,
+      "class_8": 9195,
+      "class_5": 8173,
+      "class_6": 7903,
+      "class_1": 61,
+      "class_4": 11,
+      "class_3": 6
+    },
+    "test_counts": {
+      "class_9": 5699,
+      "class_10": 5699,
+      "class_2": 4355,
+      "class_11": 4260,
+      "class_7": 4245,
+      "class_8": 3940,
+      "class_5": 3503,
+      "class_6": 3387,
+      "class_1": 26,
+      "class_4": 5,
+      "class_3": 3
+    }
+  },
+  "metrics": {
+    "accuracy": 0.9828882182108081,
+    "balanced_accuracy": 0.7742216854021847,
+    "macro_precision": 0.7676287750382031,
+    "macro_recall": 0.7742216854021847,
+    "macro_f1": 0.7707501586084269,
+    "weighted_f1": 0.982801368535578,
+    "mcc": 0.980353412974338
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.5862068965517241,
+      "recall": 0.6538461538461539,
+      "f1": 0.6181818181818182,
+      "support": 26
+    },
+    "class_10": {
+      "precision": 0.9938650306748467,
+      "recall": 0.9949113879628005,
+      "f1": 0.9943879340582252,
+      "support": 5699
+    },
+    "class_11": {
+      "precision": 0.9501542843579397,
+      "recall": 0.9396713615023474,
+      "f1": 0.9448837483771982,
+      "support": 4260
+    },
+    "class_2": {
+      "precision": 0.9997702205882353,
+      "recall": 0.9990815154994259,
+      "f1": 0.9994257493970369,
+      "support": 4355
+    },
+    "class_3": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3
+    },
+    "class_4": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5
+    },
+    "class_5": {
+      "precision": 0.9878428046366977,
+      "recall": 0.9974307736226092,
+      "f1": 0.9926136363636363,
+      "support": 3503
+    },
+    "class_6": {
+      "precision": 0.9973451327433628,
+      "recall": 0.9982285208148804,
+      "f1": 0.9977866312527667,
+      "support": 3387
+    },
+    "class_7": {
+      "precision": 0.9967058823529412,
+      "recall": 0.9978798586572438,
+      "f1": 0.9972925250147145,
+      "support": 4245
+    },
+    "class_8": {
+      "precision": 0.935378425949208,
+      "recall": 0.9441624365482234,
+      "f1": 0.9397499052671467,
+      "support": 3940
+    },
+    "class_9": {
+      "precision": 0.9966478475652788,
+      "recall": 0.9912265309703456,
+      "f1": 0.9939297967801531,
+      "support": 5699
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_10",
+    "class_11",
+    "class_2",
+    "class_3",
+    "class_4",
+    "class_5",
+    "class_6",
+    "class_7",
+    "class_8",
+    "class_9"
+  ],
+  "confusion_matrix": [
+    [
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      5670,
+      0,
+      0,
+      1,
+      0,
+      12,
+      1,
+      0,
+      0,
+      15
+    ],
+    [
+      2,
+      0,
+      4003,
+      0,
+      0,
+      0,
+      1,
+      0,
+      5,
+      249,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      4351,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3494,
+      5,
+      0,
+      0,
+      4
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      3381,
+      1,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4236,
+      4,
+      0
+    ],
+    [
+      5,
+      0,
+      208,
+      1,
+      0,
+      0,
+      1,
+      0,
+      5,
+      3720,
+      0
+    ],
+    [
+      0,
+      35,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0,
+      5649
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1814.8,
+    "peak_rss_mb": 4954.3,
+    "peak_cpu_percent": 143.0,
+    "n_models_evaluated": 16,
+    "model_size_mb": 15.22,
+    "predict_latency_ms_per_sample": 0.71
+  },
+  "model_info": {
+    "leader": "GBM_1_AutoML_1_20261004_62912",
+    "leader_algo": "gbm",
+    "leaderboard_top5": [
+      "GBM_1_AutoML_1_20261004_62912",
+      "GBM_2_AutoML_1_20261004_62912",
+      "GBM_4_AutoML_1_20261004_62912",
+      "GBM_3_AutoML_1_20261004_62912",
+      "XGBoost_2_AutoML_1_20261004_62912"
+    ],
+    "balance_classes": false
+  },
+  "pfi": {
+    "baseline_macro_f1": 0.7143577544469266,
+    "importance": {
+      "HH_L3_covariance": 0.0030525580866871036,
+      "HH_L5_weight": 0.12416942849063399,
+      "HH_L5_mean": 0.0014463430094908691,
+      "HH_L5_std": 0.0007837597788273495,
+      "HH_L5_magnitude": 0.0029089685191692936,
+      "HH_L5_radius": 0.00011834636952767763,
+      "HH_L5_covariance": 0.0005107240990235665,
+      "HH_L5_pcc": 0.0016541627227914708,
+      "HH_L3_weight": 0.1106653087374589,
+      "HH_L3_mean": 0.0020698477108659352,
+      "HH_L3_std": 0.00542697857454381,
+      "HH_L3_magnitude": 0.0226634016924373,
+      "HH_L3_radius": 8.381757529381713e-05,
+      "HH_L3_pcc": 0.005967310585973366,
+      "HpHp_L0_01_pcc": 0.0004054560366832198,
+      "HH_L1_weight": 0.22557624081897173,
+      "HH_L1_mean": 0.005170791909757703,
+      "HH_L1_std": 0.040202621563823183,
+      "HH_L1_magnitude": 0.0017046498178947915,
+      "HH_L1_radius": 0.0019340288343683287
+    }
+  },
+  "env": {
+    "timestamp_utc": "2026-10-04T11:01:49",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+\begin{table}[t]
+\centering
+\caption{Complete permutation importance of all 20 features of device 9 (macro-F1 drop, mean $\pm$ standard deviation over five seeds).}
+\label{tab:pfifull}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Feature & Auto-sklearn & H2O AutoML \\
+\midrule
+\texttt{HH\_L1\_weight} & \textbf{0.263 $\pm$ 0.048} & \textbf{0.254 $\pm$ 0.031} \\
+\texttt{HH\_L3\_weight} & 0.057 $\pm$ 0.021 & 0.136 $\pm$ 0.057 \\
+\texttt{HH\_L5\_weight} & 0.052 $\pm$ 0.039 & 0.071 $\pm$ 0.033 \\
+\texttt{HH\_L1\_std} & 0.022 $\pm$ 0.012 & 0.066 $\pm$ 0.021 \\
+\texttt{HH\_L1\_magnitude} & 0.012 $\pm$ 0.015 & 0.035 $\pm$ 0.023 \\
+\texttt{HH\_L3\_std} & 0.012 $\pm$ 0.008 & -0.002 $\pm$ 0.009 \\
+\texttt{HH\_L1\_mean} & 0.005 $\pm$ 0.009 & 0.004 $\pm$ 0.011 \\
+\texttt{HH\_L1\_radius} & 0.006 $\pm$ 0.004 & 0.001 $\pm$ 0.001 \\
+\texttt{HH\_L3\_pcc} & 0.002 $\pm$ 0.002 & 0.005 $\pm$ 0.001 \\
+\texttt{HH\_L3\_covariance} & 0.002 $\pm$ 0.003 & 0.004 $\pm$ 0.001 \\
+\texttt{HH\_L5\_std} & 0.004 $\pm$ 0.008 & -0.001 $\pm$ 0.003 \\
+\texttt{HH\_L5\_mean} & 0.003 $\pm$ 0.007 & 0.001 $\pm$ 0.005 \\
+\texttt{HH\_L5\_covariance} & 0.001 $\pm$ 0.001 & 0.001 $\pm$ 0.001 \\
+\texttt{HH\_L5\_pcc} & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.001 \\
+\texttt{HH\_L3\_magnitude} & -0.000 $\pm$ 0.002 & 0.001 $\pm$ 0.015 \\
+\texttt{HpHp\_L0\_01\_pcc} & 0.000 $\pm$ 0.000 & 0.001 $\pm$ 0.000 \\
+\texttt{HH\_L3\_radius} & 0.000 $\pm$ 0.001 & 0.000 $\pm$ 0.000 \\
+\texttt{HH\_L5\_radius} & 0.000 $\pm$ 0.000 & -0.000 $\pm$ 0.001 \\
+\texttt{HH\_L3\_mean} & 0.002 $\pm$ 0.006 & -0.002 $\pm$ 0.006 \\
+\texttt{HH\_L5\_magnitude} & 0.002 $\pm$ 0.003 & -0.002 $\pm$ 0.009 \\
+\bottomrule
+\end{tabular}
+\end{table}

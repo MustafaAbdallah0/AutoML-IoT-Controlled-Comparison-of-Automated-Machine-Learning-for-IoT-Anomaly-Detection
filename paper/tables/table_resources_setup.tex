@@ -1,0 +1,28 @@
+\begin{table*}[t]
+\centering
+\caption{Resource use per setup: mean $\pm$ standard deviation over five seeds. Lower is better. Bold: lowest mean per setup; models evaluated is not ranked.}
+\label{tab:resourcessetup}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Setup & Framework & Fit time (s) & Peak memory (GB) & Models evaluated & Model size (MB) & Latency (ms/sample) \\
+\midrule
+MEMS, random split & Auto-sklearn & 1847 $\pm$ 30 & 5.2 $\pm$ 1.5 & 565 $\pm$ 153 & 966 $\pm$ 914 & 0.64 $\pm$ 0.53 \\
+ & H2O AutoML & \textbf{1808 $\pm$ 1} & \textbf{3.9 $\pm$ 0.5} & 123 $\pm$ 10 & \textbf{100 $\pm$ 86} & \textbf{0.23 $\pm$ 0.10} \\
+\midrule
+MEMS, block split & Auto-sklearn & 1846 $\pm$ 61 & 4.8 $\pm$ 2.0 & 577 $\pm$ 100 & 705 $\pm$ 335 & 0.66 $\pm$ 0.46 \\
+ & H2O AutoML & \textbf{1808 $\pm$ 1} & 3.8 $\pm$ 0.6 & 117 $\pm$ 18 & \textbf{32 $\pm$ 55} & \textbf{0.15 $\pm$ 0.08} \\
+ & H2O AutoML, balanced & \textbf{1808 $\pm$ 2} & \textbf{3.6 $\pm$ 0.5} & 132 $\pm$ 32 & 45 $\pm$ 48 & \textbf{0.15 $\pm$ 0.03} \\
+\midrule
+MEMS, block split with oversampling & Auto-sklearn & 1861 $\pm$ 49 & \textbf{2.8 $\pm$ 0.1} & 652 $\pm$ 40 & 535 $\pm$ 605 & 0.50 $\pm$ 0.21 \\
+ & H2O AutoML & \textbf{1810 $\pm$ 5} & 5.6 $\pm$ 0.4 & 149 $\pm$ 29 & \textbf{294 $\pm$ 223} & \textbf{0.29 $\pm$ 0.14} \\
+\midrule
+Device 9, deduplicated & Auto-sklearn & 1835 $\pm$ 30 & 5.9 $\pm$ 1.1 & 224 $\pm$ 19 & 4600 $\pm$ 1017 & 1.82 $\pm$ 0.50 \\
+ & H2O AutoML & \textbf{1814 $\pm$ 1} & \textbf{4.5 $\pm$ 0.4} & 16 $\pm$ 0 & \textbf{10 $\pm$ 4} & \textbf{0.38 $\pm$ 0.19} \\
+\midrule
+Device 9, raw & Auto-sklearn & 1920 $\pm$ 104 & 5.8 $\pm$ 0.5 & 217 $\pm$ 14 & 3994 $\pm$ 1035 & 1.34 $\pm$ 0.48 \\
+ & H2O AutoML & \textbf{1820 $\pm$ 3} & 5.8 $\pm$ 0.1 & 17 $\pm$ 0 & \textbf{26 $\pm$ 9} & \textbf{0.26 $\pm$ 0.02} \\
+\bottomrule
+\end{tabular}
+\end{table*}

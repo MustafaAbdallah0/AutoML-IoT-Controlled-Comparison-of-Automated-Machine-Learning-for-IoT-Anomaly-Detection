@@ -1,0 +1,111 @@
+{
+  "tag": "mems__group__oversample__baseline-dummy",
+  "framework": "baseline-dummy",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "oversample",
+  "seed": 2,
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 2,
+    "test_size": 0.3,
+    "train_dist": "oversample",
+    "n_features": 3,
+    "n_train_before_dist": 14511,
+    "n_train": 19266,
+    "n_test": 7065,
+    "train_counts": {
+      "class_2": 6422,
+      "class_3": 6422,
+      "class_1": 6422
+    },
+    "test_counts": {
+      "class_1": 4543,
+      "class_3": 1423,
+      "class_2": 1099
+    }
+  },
+  "metrics": {
+    "accuracy": 0.6430290162774239,
+    "balanced_accuracy": 0.3333333333333333,
+    "macro_precision": 0.21434300542580798,
+    "macro_recall": 0.3333333333333333,
+    "macro_f1": 0.260912014702504,
+    "weighted_f1": 0.5033219884473358,
+    "mcc": 0.0
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.6430290162774239,
+      "recall": 1.0,
+      "f1": 0.7827360441075121,
+      "support": 4543
+    },
+    "class_2": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1099
+    },
+    "class_3": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1423
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      4543,
+      0,
+      0
+    ],
+    [
+      1099,
+      0,
+      0
+    ],
+    [
+      1423,
+      0,
+      0
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 0.0,
+    "predict_latency_ms_per_sample": 0.0
+  },
+  "env": {
+    "timestamp_utc": "2026-10-03T18:02:16",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

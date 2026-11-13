@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Summary per setup. \cmark: better of the two AutoML frameworks (ties mark both). Last column: best of all methods by macro-F1.}
+\label{tab:summary}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccccccl@{}}
+\toprule
+Setup & \multicolumn{2}{c}{Macro-F1} & \multicolumn{2}{c}{Balanced accuracy} & \multicolumn{2}{c}{Accuracy} & Seeds won & Best of all methods \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & Auto-sklearn & H2O AutoML & Auto-sklearn & H2O AutoML & Auto-sklearn & H2O AutoML & (A/H) & (macro-F1) \\
+\midrule
+MEMS, random split & 0.689~\cmark & 0.675~\phantom{\cmark} & 0.687~\cmark & 0.666~\phantom{\cmark} & 0.711~\phantom{\cmark} & 0.720~\cmark & 5/0 & Auto-sklearn \\
+MEMS, block split & 0.562~\phantom{\cmark} & 0.566~\cmark & 0.593~\cmark & 0.593~\cmark & 0.608~\phantom{\cmark} & 0.621~\cmark & 3/2 & H2O AutoML \\
+MEMS, block split with oversampling & 0.545~\cmark & 0.540~\phantom{\cmark} & 0.597~\cmark & 0.575~\phantom{\cmark} & 0.563~\phantom{\cmark} & 0.577~\cmark & 3/2 & MLP \\
+\midrule
+Device 9, deduplicated & 0.792~\cmark & 0.777~\phantom{\cmark} & 0.794~\cmark & 0.771~\phantom{\cmark} & 0.985~\cmark & 0.983~\phantom{\cmark} & 4/1 & Random forest \\
+Device 9, raw & 0.698~\cmark & 0.664~\phantom{\cmark} & 0.711~\cmark & 0.683~\phantom{\cmark} & 0.711~\cmark & 0.683~\phantom{\cmark} & 5/0 & Auto-sklearn \\
+\bottomrule
+\end{tabular}
+\end{table*}

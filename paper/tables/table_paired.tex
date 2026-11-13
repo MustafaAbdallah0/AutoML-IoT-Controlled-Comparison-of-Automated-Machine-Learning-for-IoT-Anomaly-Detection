@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Paired macro-F1 differences (first minus second method; seeds won/lost in parentheses). A: Auto-sklearn, H: H2O AutoML, DT: decision tree. Bold: first method won all five seeds.}
+\label{tab:paired}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Setup & A$-$H & A$-$RF & H$-$RF & A$-$MLP & H$-$MLP & A$-$DT & H$-$DT \\
+\midrule
+MEMS, random split & \textbf{+0.013 (5/0)} & \textbf{+0.035 (5/0)} & \textbf{+0.022 (5/0)} & \textbf{+0.018 (5/0)} & +0.004 (4/1) & \textbf{+0.096 (5/0)} & \textbf{+0.083 (5/0)} \\
+MEMS, block split & -0.004 (3/2) & \textbf{+0.015 (5/0)} & \textbf{+0.019 (5/0)} & +0.006 (4/1) & +0.010 (4/1) & \textbf{+0.060 (5/0)} & \textbf{+0.064 (5/0)} \\
+MEMS, block split with oversampling & +0.005 (3/2) & +0.007 (3/2) & +0.002 (3/2) & -0.013 (2/3) & -0.018 (2/3) & \textbf{+0.047 (5/0)} & \textbf{+0.041 (5/0)} \\
+Device 9, deduplicated & +0.016 (4/1) & -0.011 (2/3) & -0.026 (0/5) & \textbf{+0.107 (5/0)} & \textbf{+0.091 (5/0)} & +0.015 (4/1) & -0.001 (3/2) \\
+Device 9, raw & \textbf{+0.034 (5/0)} & \textbf{+0.003 (5/0)} & -0.032 (1/4) & \textbf{+0.061 (5/0)} & \textbf{+0.027 (5/0)} & \textbf{+0.011 (5/0)} & -0.024 (1/4) \\
+\bottomrule
+\end{tabular}
+\end{table*}

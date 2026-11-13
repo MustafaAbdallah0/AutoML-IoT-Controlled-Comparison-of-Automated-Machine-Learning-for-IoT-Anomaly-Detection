@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv*/
+.venv/
+nohup.out
+*.log
+*.pkl
+# new local runs (the published results live in results/)
+pipeline/results/
+pipeline/results_*/
+pipeline/tables/
+pipeline/smoke*/
+# LaTeX build files
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+paper/main.pdf

@@ -1,0 +1,61 @@
+\section{Background and Problem Setup}\label{sec:background}
+We begin by presenting a formal model of the comparison problem, which establishes a basis that applies to any labeled IoT dataset and any AutoML framework. A simple example of our setup is shown in Figure~\ref{fig:pipeline}. A dataset is audited, converted into evaluation protocols, and used to train AutoML frameworks and baseline models under identical conditions. In this section, we formalize the data, the AutoML task, the evaluation criteria, and the sources of evaluation bias.
+
+\subsection{Data and Task Model}
+Let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^{N}$ denote a labeled IoT dataset that contains $N$ samples. The vector $x_i\in\mathbb{R}^{d}$ contains features computed from sensor readings or network traffic, and $y_i\in\mathcal{C}=\{1,\dots,K\}$ is the class label. In multi-class anomaly detection, one class represents normal operation, and the remaining classes represent fault levels or attack types. Class frequencies are typically imbalanced, and some classes contain only a few distinct samples.
+
+An evaluation protocol $\pi$ with seed $s$ partitions $\mathcal{D}$ into a training set $\mathcal{D}_{\mathrm{tr}}$ and a test set $\mathcal{D}_{\mathrm{te}}$. We consider a random protocol, which draws a stratified random partition, and a block protocol. For time-ordered recordings, consecutive samples with identical labels form blocks, and the block protocol assigns entire blocks to the test set while it keeps every class represented in both partitions. Both protocols use the same test fraction, so that differences between them do not result from the size of the test set. A training distribution $\tau$ either keeps the training set unchanged or repeats minority-class samples until every class matches the size of the majority class.
+
+\subsection{AutoML Model}
+An AutoML framework solves the combined algorithm selection and hyperparameter optimization (CASH) problem~\cite{thornton2013}. Let $\mathcal{A}$ denote a set of learning algorithms and $\Lambda_A$ the hyperparameter space of algorithm $A\in\mathcal{A}$. Given a wall-clock budget $T$, the framework returns
+\begin{equation}
+(A^{*},\lambda^{*}) \in \operatorname*{arg\,min}_{A\in\mathcal{A},\;\lambda\in\Lambda_A} \mathcal{L}_{\mathrm{val}}\big(A_{\lambda};\mathcal{D}_{\mathrm{tr}}\big),
+\label{eq:cash}
+\end{equation}
+where $\mathcal{L}_{\mathrm{val}}$ is a validation loss that is estimated on $\mathcal{D}_{\mathrm{tr}}$ only. Auto-sklearn minimizes one minus the macro-averaged F1 score on a holdout split. It uses Bayesian optimization, a meta-learning warm start, and a final weighted ensemble~\cite{feurer2015}. The ensemble predicts
+\begin{equation}
+\hat{y}(x)=\operatorname*{arg\,max}_{c\in\mathcal{C}}\sum_{k=1}^{M} w_k\,p_k(c\mid x),
+\label{eq:ensemble}
+\end{equation}
+where $p_k$ denotes the class probabilities of member $k$, and the weights $w_k\ge 0$ sum to one.
+
+H2O AutoML trains a portfolio of algorithms, ranks the models on a leaderboard by cross-validated mean per-class error, and returns the leader. The leader is either a single model or a stacked ensemble, in which a metalearner combines the predictions of base models~\cite{ledell2020}. The two frameworks therefore optimize related but not identical objectives and validate differently. We document and control these differences in Section~\ref{sec:evaluation}.
+
+\subsection{Evaluation Model}
+We evaluate a model on $\mathcal{D}_{\mathrm{te}}$ with class-wise and aggregated metrics. For class $c$, the recall, the precision, and the F1 score are
+\begin{equation}
+\begin{aligned}
+R_c&=\frac{\mathrm{TP}_c}{\mathrm{TP}_c+\mathrm{FN}_c},\qquad P_c=\frac{\mathrm{TP}_c}{\mathrm{TP}_c+\mathrm{FP}_c},\\
+\mathrm{F1}_c&=\frac{2P_cR_c}{P_c+R_c}.
+\end{aligned}
+\label{eq:classmetrics}
+\end{equation}
+The macro-averaged F1 score, the balanced accuracy, and the accuracy are
+\begin{equation}
+\begin{aligned}
+\mathrm{MF1}&=\frac{1}{K}\sum_{c=1}^{K}\mathrm{F1}_c,\qquad \mathrm{BA}=\frac{1}{K}\sum_{c=1}^{K}R_c,\\
+\mathrm{ACC}&=\frac{1}{|\mathcal{D}_{\mathrm{te}}|}\sum_{i\in\mathcal{D}_{\mathrm{te}}}\mathbb{1}[\hat{y}_i=y_i].
+\end{aligned}
+\label{eq:aggmetrics}
+\end{equation}
+Macro-averaging gives every class the same weight, so that failures on rare classes remain visible, whereas the accuracy is dominated by frequent classes. We also report the macro-averaged precision and recall, the support-weighted F1 score, and the Matthews correlation coefficient (MCC)~\cite{chicco2020}.
+
+Because the seed $s$ fixes the split, methods are compared by paired differences. For a metric $M_s$ and two methods $m_1$ and $m_2$, we define
+\begin{equation}
+\begin{aligned}
+\Delta_s(m_1,m_2)&=M_s(m_1)-M_s(m_2),\\
+W(m_1,m_2)&=\sum_{s\in\mathcal{S}}\mathbb{1}[\Delta_s>0],
+\end{aligned}
+\label{eq:paired}
+\end{equation}
+where $\mathcal{S}$ is the set of seeds and $W$ counts the seeds in which $m_1$ wins. Cost is measured by the wall-clock fit time, the peak memory of all processes, the size of the serialized model, and the batch prediction latency per sample.
+
+\subsection{Sources of Evaluation Bias}
+Three properties of IoT datasets can distort the comparison of frameworks. The first property is the duplication and ambiguity of records. Let $n_{v,c}$ denote the number of rows with feature vector $v$ and label $c$. A vector $v$ is \emph{ambiguous} if $n_{v,c}>0$ for at least two classes. Any classifier that maps identical inputs to identical outputs assigns a single label to $v$, and therefore the accuracy on the file cannot exceed
+\begin{equation}
+A_{\max}=\frac{1}{N}\sum_{v}\max_{c}\,n_{v,c}.
+\label{eq:ceiling}
+\end{equation}
+The corresponding per-class ceiling $R^{\max}_c$ is the share of class $c$ that a majority-label rule classifies correctly. Exact duplicates additionally allow identical rows to appear in the training and the test partition, which inflates the score.
+
+The second property is temporal structure, because a random protocol can place neighboring samples of the same recording in both partitions, so that test samples have close neighbors in the training data. The third property is class imbalance, which makes the accuracy uninformative about rare classes. We quantify these properties in Section~\ref{sec:audit} and measure their effect in Section~\ref{sec:evaluation}.

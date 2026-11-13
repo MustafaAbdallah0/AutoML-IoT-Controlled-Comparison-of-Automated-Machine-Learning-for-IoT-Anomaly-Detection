@@ -1,0 +1,190 @@
+{
+  "tag": "mems__group__oversample__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "oversample",
+  "seed": 4,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "oversample",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 4,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 4,
+    "test_size": 0.3,
+    "train_dist": "oversample",
+    "n_features": 3,
+    "n_train_before_dist": 12775,
+    "n_train": 17319,
+    "n_test": 8801,
+    "train_counts": {
+      "class_3": 5773,
+      "class_2": 5773,
+      "class_1": 5773
+    },
+    "test_counts": {
+      "class_1": 5192,
+      "class_2": 1888,
+      "class_3": 1721
+    }
+  },
+  "metrics": {
+    "accuracy": 0.5094875582320191,
+    "balanced_accuracy": 0.5356729161686493,
+    "macro_precision": 0.4786734446378584,
+    "macro_recall": 0.5356729161686493,
+    "macro_f1": 0.4868799800046519,
+    "weighted_f1": 0.5112725214736069,
+    "mcc": 0.24383203398686004
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.6687376447331262,
+      "recall": 0.4560862865947612,
+      "f1": 0.5423107752204283,
+      "support": 5192
+    },
+    "class_2": {
+      "precision": 0.502629848783695,
+      "recall": 0.8098516949152542,
+      "f1": 0.6202839756592292,
+      "support": 1888
+    },
+    "class_3": {
+      "precision": 0.26465284039675385,
+      "recall": 0.3410807669959326,
+      "f1": 0.29804518913429806,
+      "support": 1721
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      2368,
+      1233,
+      1591
+    ],
+    [
+      319,
+      1529,
+      40
+    ],
+    [
+      854,
+      280,
+      587
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1841.0,
+    "peak_rss_mb": 2996.4,
+    "peak_cpu_percent": 135.7,
+    "n_models_evaluated": 647,
+    "model_size_mb": 444.59,
+    "predict_latency_ms_per_sample": 0.5864
+  },
+  "model_info": {
+    "n_ensemble_members": 11,
+    "members": [
+      {
+        "weight": 0.56,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 846265a4-bfbe-11f1-b55c-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.915922 |   Number of target algorithm runs: 646 |   Number of successful target algorithm runs: 628 |   Number of crashed target algorithm runs: 2 |   Number of target algorithms that exceeded the time limit: 5 |   Number of target algorithms that exceeded the memory limit: 11 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-04T07:11:27",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

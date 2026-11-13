@@ -1,0 +1,398 @@
+{
+  "tag": "nbaiot9-raw__random__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "nbaiot:9",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 0,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "nbaiot:9",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "random",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": true,
+    "max_rows": null,
+    "seed": 0,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "nbaiot:9",
+    "kind": "nbaiot",
+    "device": 9,
+    "dedup": false,
+    "rows_raw": 209000,
+    "rows_final": 209000,
+    "split": "random",
+    "seed": 0,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 20,
+    "n_train_before_dist": 146300,
+    "n_train": 146300,
+    "n_test": 62700,
+    "train_counts": {
+      "class_9": 13300,
+      "class_10": 13300,
+      "class_8": 13300,
+      "class_2": 13300,
+      "class_6": 13300,
+      "class_11": 13300,
+      "class_7": 13300,
+      "class_1": 13300,
+      "class_4": 13300,
+      "class_3": 13300,
+      "class_5": 13300
+    },
+    "test_counts": {
+      "class_2": 5700,
+      "class_11": 5700,
+      "class_1": 5700,
+      "class_5": 5700,
+      "class_8": 5700,
+      "class_7": 5700,
+      "class_10": 5700,
+      "class_9": 5700,
+      "class_6": 5700,
+      "class_4": 5700,
+      "class_3": 5700
+    }
+  },
+  "metrics": {
+    "accuracy": 0.7121052631578947,
+    "balanced_accuracy": 0.7121052631578948,
+    "macro_precision": 0.7850404669335574,
+    "macro_recall": 0.7121052631578948,
+    "macro_f1": 0.6983672723167438,
+    "weighted_f1": 0.6983672723167438,
+    "mcc": 0.7230748691820787
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.5,
+      "recall": 0.0019298245614035089,
+      "f1": 0.0038448095071653265,
+      "support": 5700
+    },
+    "class_10": {
+      "precision": 0.9964967595025398,
+      "recall": 0.9980701754385964,
+      "f1": 0.9972828468752738,
+      "support": 5700
+    },
+    "class_11": {
+      "precision": 0.9552063789868668,
+      "recall": 0.714561403508772,
+      "f1": 0.8175431553592934,
+      "support": 5700
+    },
+    "class_2": {
+      "precision": 0.9990863407948835,
+      "recall": 0.7673684210526316,
+      "f1": 0.868029370906926,
+      "support": 5700
+    },
+    "class_3": {
+      "precision": 0.24488567990373045,
+      "recall": 0.9996491228070176,
+      "f1": 0.3933996133664734,
+      "support": 5700
+    },
+    "class_4": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5700
+    },
+    "class_5": {
+      "precision": 0.9954457873533018,
+      "recall": 0.9970175438596491,
+      "f1": 0.9962310456657025,
+      "support": 5700
+    },
+    "class_6": {
+      "precision": 0.997223764575236,
+      "recall": 0.9452631578947368,
+      "f1": 0.9705485004052958,
+      "support": 5700
+    },
+    "class_7": {
+      "precision": 0.9983552631578947,
+      "recall": 0.7454385964912281,
+      "f1": 0.8535556448372842,
+      "support": 5700
+    },
+    "class_8": {
+      "precision": 0.9498001998001998,
+      "recall": 0.6671929824561403,
+      "f1": 0.783800494641385,
+      "support": 5700
+    },
+    "class_9": {
+      "precision": 0.9989449621944786,
+      "recall": 0.9966666666666667,
+      "f1": 0.9978045139193817,
+      "support": 5700
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_10",
+    "class_11",
+    "class_2",
+    "class_3",
+    "class_4",
+    "class_5",
+    "class_6",
+    "class_7",
+    "class_8",
+    "class_9"
+  ],
+  "confusion_matrix": [
+    [
+      11,
+      0,
+      6,
+      2,
+      5666,
+      0,
+      3,
+      3,
+      3,
+      6,
+      0
+    ],
+    [
+      0,
+      5689,
+      0,
+      0,
+      0,
+      0,
+      7,
+      1,
+      0,
+      0,
+      3
+    ],
+    [
+      4,
+      0,
+      4073,
+      0,
+      1432,
+      0,
+      1,
+      1,
+      0,
+      189,
+      0
+    ],
+    [
+      0,
+      0,
+      7,
+      4374,
+      1315,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      5698,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      5698,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      7,
+      0,
+      0,
+      0,
+      0,
+      5683,
+      8,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      306,
+      0,
+      4,
+      5388,
+      1,
+      0,
+      0
+    ],
+    [
+      4,
+      0,
+      5,
+      0,
+      1436,
+      0,
+      1,
+      0,
+      4249,
+      5,
+      0
+    ],
+    [
+      1,
+      0,
+      173,
+      2,
+      1717,
+      0,
+      1,
+      1,
+      2,
+      3803,
+      0
+    ],
+    [
+      0,
+      13,
+      0,
+      0,
+      0,
+      0,
+      6,
+      0,
+      0,
+      0,
+      5681
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1860.8,
+    "peak_rss_mb": 5559.0,
+    "peak_cpu_percent": 120.7,
+    "n_models_evaluated": 223,
+    "model_size_mb": 2549.46,
+    "predict_latency_ms_per_sample": 0.802
+  },
+  "model_info": {
+    "n_ensemble_members": 13,
+    "members": [
+      {
+        "weight": 0.22,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.22,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.12,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: a92d29e1-bed7-11f1-a679-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.695987 |   Number of target algorithm runs: 222 |   Number of successful target algorithm runs: 146 |   Number of crashed target algorithm runs: 22 |   Number of target algorithms that exceeded the time limit: 36 |   Number of target algorithms that exceeded the memory limit: 18 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-03T03:39:51",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

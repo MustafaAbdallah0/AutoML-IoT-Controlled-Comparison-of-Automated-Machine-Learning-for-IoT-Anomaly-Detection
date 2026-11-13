@@ -1,0 +1,218 @@
+{
+  "tag": "mems__group__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "full",
+  "seed": 3,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 3,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 3,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 12075,
+    "n_train": 12075,
+    "n_test": 9501,
+    "train_counts": {
+      "class_1": 5191,
+      "class_2": 3469,
+      "class_3": 3415
+    },
+    "test_counts": {
+      "class_1": 5774,
+      "class_2": 2304,
+      "class_3": 1423
+    }
+  },
+  "metrics": {
+    "accuracy": 0.6239343227028734,
+    "balanced_accuracy": 0.5966114822924947,
+    "macro_precision": 0.574069125034041,
+    "macro_recall": 0.5966114822924947,
+    "macro_f1": 0.579344803061188,
+    "weighted_f1": 0.636639038369966,
+    "mcc": 0.3665160013843565
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.7263863497867155,
+      "recall": 0.6193280221683408,
+      "f1": 0.668598672525007,
+      "support": 5774
+    },
+    "class_2": {
+      "precision": 0.735053235053235,
+      "recall": 0.7790798611111112,
+      "f1": 0.7564264643910661,
+      "support": 2304
+    },
+    "class_3": {
+      "precision": 0.2607677902621723,
+      "recall": 0.39142656359803235,
+      "f1": 0.31300927226749087,
+      "support": 1423
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      3576,
+      622,
+      1576
+    ],
+    [
+      506,
+      1795,
+      3
+    ],
+    [
+      841,
+      25,
+      557
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1808.4,
+    "peak_rss_mb": 2961.0,
+    "peak_cpu_percent": 137.9,
+    "n_models_evaluated": 578,
+    "model_size_mb": 305.63,
+    "predict_latency_ms_per_sample": 0.6644
+  },
+  "model_info": {
+    "n_ensemble_members": 18,
+    "members": [
+      {
+        "weight": 0.2,
+        "estimator": "LibLinear_SVC"
+      },
+      {
+        "weight": 0.12,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "LibLinear_SVC"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LibLinear_SVC"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "KNearestNeighborsClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: a3800f55-bf89-11f1-99f8-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.694555 |   Number of target algorithm runs: 577 |   Number of successful target algorithm runs: 523 |   Number of crashed target algorithm runs: 23 |   Number of target algorithms that exceeded the time limit: 30 |   Number of target algorithms that exceeded the memory limit: 1 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-04T00:52:27",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

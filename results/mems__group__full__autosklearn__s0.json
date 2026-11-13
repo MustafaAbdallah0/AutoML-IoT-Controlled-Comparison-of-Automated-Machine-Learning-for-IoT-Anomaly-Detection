@@ -1,0 +1,190 @@
+{
+  "tag": "mems__group__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "full",
+  "seed": 0,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 0,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 0,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 14532,
+    "n_train": 14532,
+    "n_test": 7044,
+    "train_counts": {
+      "class_1": 7004,
+      "class_3": 4118,
+      "class_2": 3410
+    },
+    "test_counts": {
+      "class_1": 3961,
+      "class_2": 2363,
+      "class_3": 720
+    }
+  },
+  "metrics": {
+    "accuracy": 0.6175468483816013,
+    "balanced_accuracy": 0.6803624272171929,
+    "macro_precision": 0.5894153722991465,
+    "macro_recall": 0.6803624272171929,
+    "macro_f1": 0.5885915078255098,
+    "weighted_f1": 0.6296693899449343,
+    "mcc": 0.4330591979255607
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.7601577909270217,
+      "recall": 0.48649330977026006,
+      "f1": 0.5932881773399016,
+      "support": 3961
+    },
+    "class_2": {
+      "precision": 0.720876585928489,
+      "recall": 0.7934828607702074,
+      "f1": 0.7554391619661563,
+      "support": 2363
+    },
+    "class_3": {
+      "precision": 0.28721174004192873,
+      "recall": 0.7611111111111111,
+      "f1": 0.4170471841704718,
+      "support": 720
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      1927,
+      724,
+      1310
+    ],
+    [
+      438,
+      1875,
+      50
+    ],
+    [
+      170,
+      2,
+      548
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1844.8,
+    "peak_rss_mb": 4845.7,
+    "peak_cpu_percent": 132.8,
+    "n_models_evaluated": 672,
+    "model_size_mb": 402.72,
+    "predict_latency_ms_per_sample": 0.2977
+  },
+  "model_info": {
+    "n_ensemble_members": 11,
+    "members": [
+      {
+        "weight": 0.34,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.28,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.16,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LibLinear_SVC"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 72b857e5-beb8-11f1-80a4-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.716582 |   Number of target algorithm runs: 671 |   Number of successful target algorithm runs: 628 |   Number of crashed target algorithm runs: 20 |   Number of target algorithms that exceeded the time limit: 4 |   Number of target algorithms that exceeded the memory limit: 19 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-02T23:55:31",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

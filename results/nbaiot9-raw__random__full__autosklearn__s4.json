@@ -1,0 +1,418 @@
+{
+  "tag": "nbaiot9-raw__random__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "nbaiot:9",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 4,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "nbaiot:9",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "random",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": true,
+    "max_rows": null,
+    "seed": 4,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "nbaiot:9",
+    "kind": "nbaiot",
+    "device": 9,
+    "dedup": false,
+    "rows_raw": 209000,
+    "rows_final": 209000,
+    "split": "random",
+    "seed": 4,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 20,
+    "n_train_before_dist": 146300,
+    "n_train": 146300,
+    "n_test": 62700,
+    "train_counts": {
+      "class_5": 13300,
+      "class_10": 13300,
+      "class_8": 13300,
+      "class_6": 13300,
+      "class_9": 13300,
+      "class_7": 13300,
+      "class_2": 13300,
+      "class_4": 13300,
+      "class_3": 13300,
+      "class_1": 13300,
+      "class_11": 13300
+    },
+    "test_counts": {
+      "class_5": 5700,
+      "class_9": 5700,
+      "class_8": 5700,
+      "class_10": 5700,
+      "class_1": 5700,
+      "class_7": 5700,
+      "class_4": 5700,
+      "class_3": 5700,
+      "class_11": 5700,
+      "class_6": 5700,
+      "class_2": 5700
+    }
+  },
+  "metrics": {
+    "accuracy": 0.7121690590111642,
+    "balanced_accuracy": 0.7121690590111643,
+    "macro_precision": 0.8011756426000023,
+    "macro_recall": 0.7121690590111643,
+    "macro_f1": 0.6988674491947858,
+    "weighted_f1": 0.6988674491947858,
+    "mcc": 0.7233307066966346
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.6666666666666666,
+      "recall": 0.002807017543859649,
+      "f1": 0.005590496156533892,
+      "support": 5700
+    },
+    "class_10": {
+      "precision": 0.9977180972441636,
+      "recall": 0.9971929824561403,
+      "f1": 0.9974554707379135,
+      "support": 5700
+    },
+    "class_11": {
+      "precision": 0.9620283018867924,
+      "recall": 0.7156140350877193,
+      "f1": 0.8207243460764587,
+      "support": 5700
+    },
+    "class_2": {
+      "precision": 0.9983919136227889,
+      "recall": 0.7624561403508772,
+      "f1": 0.8646175271063364,
+      "support": 5700
+    },
+    "class_3": {
+      "precision": 0.2443805765271105,
+      "recall": 0.9994736842105263,
+      "f1": 0.392734041086447,
+      "support": 5700
+    },
+    "class_4": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5700
+    },
+    "class_5": {
+      "precision": 0.995100612423447,
+      "recall": 0.997719298245614,
+      "f1": 0.9964082347787998,
+      "support": 5700
+    },
+    "class_6": {
+      "precision": 0.9977724150733247,
+      "recall": 0.9429824561403509,
+      "f1": 0.9696040407684677,
+      "support": 5700
+    },
+    "class_7": {
+      "precision": 0.997196261682243,
+      "recall": 0.7487719298245614,
+      "f1": 0.855310621242485,
+      "support": 5700
+    },
+    "class_8": {
+      "precision": 0.9554331497245869,
+      "recall": 0.6694736842105263,
+      "f1": 0.787291107901795,
+      "support": 5700
+    },
+    "class_9": {
+      "precision": 0.9982440737489026,
+      "recall": 0.9973684210526316,
+      "f1": 0.9978060552874068,
+      "support": 5700
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_10",
+    "class_11",
+    "class_2",
+    "class_3",
+    "class_4",
+    "class_5",
+    "class_6",
+    "class_7",
+    "class_8",
+    "class_9"
+  ],
+  "confusion_matrix": [
+    [
+      16,
+      0,
+      1,
+      1,
+      5670,
+      0,
+      4,
+      2,
+      3,
+      3,
+      0
+    ],
+    [
+      0,
+      5684,
+      0,
+      0,
+      0,
+      1,
+      9,
+      0,
+      0,
+      0,
+      6
+    ],
+    [
+      4,
+      0,
+      4079,
+      1,
+      1450,
+      0,
+      2,
+      1,
+      3,
+      160,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      4346,
+      1342,
+      0,
+      3,
+      0,
+      2,
+      5,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      5697,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      5699,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      1,
+      2,
+      5687,
+      4,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      321,
+      0,
+      2,
+      5375,
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      5,
+      1413,
+      0,
+      2,
+      2,
+      4268,
+      10,
+      0
+    ],
+    [
+      1,
+      0,
+      160,
+      0,
+      1719,
+      0,
+      0,
+      2,
+      2,
+      3816,
+      0
+    ],
+    [
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      5685
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 2013.9,
+    "peak_rss_mb": 6318.7,
+    "peak_cpu_percent": 116.5,
+    "n_models_evaluated": 198,
+    "model_size_mb": 4779.95,
+    "predict_latency_ms_per_sample": 1.3619
+  },
+  "model_info": {
+    "n_ensemble_members": 18,
+    "members": [
+      {
+        "weight": 0.28,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "RandomForest"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 94e3b5e4-bfd9-11f1-aa8b-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.698060 |   Number of target algorithm runs: 197 |   Number of successful target algorithm runs: 123 |   Number of crashed target algorithm runs: 15 |   Number of target algorithms that exceeded the time limit: 42 |   Number of target algorithms that exceeded the memory limit: 17 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-04T10:28:59",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

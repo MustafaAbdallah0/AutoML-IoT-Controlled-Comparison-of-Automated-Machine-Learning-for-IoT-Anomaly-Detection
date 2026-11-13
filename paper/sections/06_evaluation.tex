@@ -1,0 +1,91 @@
+\section{Evaluation}\label{sec:evaluation}
+Our evaluation of AutoML-IoT aims to answer the following questions:
+\begin{itemize}
+\item \textbf{RQ1:} Do AutoML models outperform default baselines once leakage is controlled?
+\item \textbf{RQ2:} Does the ranking of the two frameworks survive changes of split, data cleaning, and class balancing?
+\item \textbf{RQ3:} Which classes fail, and how far do accuracy and macro-F1 diverge?
+\item \textbf{RQ4:} What do the frameworks cost in time, memory, model size, and latency?
+\item \textbf{RQ5:} Do the selected models rely on the same features, and on those found for hand-built models~\cite{gummadi2024xaiiot}?
+\end{itemize}
+
+\subsection{Experimental Setup}
+\textbf{Dataset description:} We evaluate five setups. On MEMS, we use a random stratified 70/30 split, a block split that holds out about 30\% of the blocks of each class, and the block split with an oversampled training set. On N-BaIoT device 9, we use the deduplicated variant and the raw variant, each with a random stratified 70/30 split. The random split is comparable to the protocol of~\cite{gummadi2024xaiiot}. Every setup is repeated with seeds 0 to 4, and the seed also determines the split.
+
+\textbf{AutoML configuration:} Table~\ref{tab:config} lists the settings of both frameworks. They share the budget of 1800\,s, eight threads, and the seeds, and they differ in the objective and in the validation strategy because these settings are native to each framework. In addition, we run H2O AutoML with its \texttt{balance\_classes} option on the MEMS block split to separate algorithmic balancing from data-level oversampling, which yields 55 AutoML runs in total.
+
+\textbf{Baselines:} The baselines are a majority-class predictor, a decision tree, a random forest with 100 trees, and an MLP, all with default settings, and the MLP uses standardized inputs. This yields 100 baseline runs, and all 155 runs share one hardware and software environment (Appendix~\ref{app:config}).
+\input{tables/table_config}
+
+\subsection{Detection Quality on MEMS}
+Table~\ref{tab:mems} reports the macro-F1 of all methods on MEMS under the three protocols, and Appendix~\ref{app:results} gives complete metrics for both frameworks. The majority-class row shows the score of a model that ignores its input. Table~\ref{tab:paired} compares the methods by paired differences.
+
+\textbf{1) Random split:} Both frameworks outperform the default random forest in all five seeds, by 0.035 (Auto-sklearn) and 0.022 (H2O AutoML). Auto-sklearn also exceeds H2O AutoML by 0.013 in all five seeds. A default MLP stays close, with a gap of 0.018 to Auto-sklearn and 0.004 to H2O AutoML.
+
+\textbf{2) Block split:} Holding out entire blocks lowers the macro-F1 of every learning method by 0.09 to 0.13. Auto-sklearn drops from 0.689 to 0.562 and H2O AutoML from 0.675 to 0.566. The random forest drops from 0.654 to 0.547, the MLP from 0.671 to 0.556, and the decision tree from 0.592 to 0.502.
+
+The standard deviation over seeds grows from at most 0.007 to between 0.05 and 0.07 (0.02 for the decision tree). The scores of different methods also move together across seeds, with correlation coefficients between 0.93 and 0.99. The held-out blocks therefore explain more of the variation than the method does. Under this protocol, the two frameworks cannot be distinguished (difference $-0.004$, three seeds won and two lost). Both exceed the random forest by only 0.015 to 0.019 and the MLP by 0.006 to 0.010.
+
+\textbf{3) Class level:} The failure class (class 3) is the most difficult class. Its recall is 0.40 for Auto-sklearn and 0.36 for H2O AutoML, with standard deviations of 0.23 and 0.22 over the seeds. The normal class (class 1) reaches 0.64 to 0.67, and the near-failure class (class 2) reaches 0.74 to 0.75 (Table~\ref{tab:perclassmems}).
+\input{tables/table_mems}
+\input{tables/table_paired}
+
+\subsection{Class Balancing}
+Oversampling the training set lowered the block-split macro-F1 of both frameworks. Auto-sklearn lost 0.017 and improved in only one of five seeds, and H2O AutoML lost 0.026 and improved in none. The baselines changed little (random forest $-0.009$, MLP $+0.002$, decision tree $-0.003$).
+
+Oversampling shifted errors between classes instead of removing them, as the class-level numbers show. The recall of the failure class rose from 0.40 to 0.51 for Auto-sklearn and from 0.36 to 0.41 for H2O AutoML. The recall of the normal class fell from 0.64 to 0.51 and from 0.67 to 0.59, respectively, which corresponds to more false alarms during normal operation.
+
+The \texttt{balance\_classes} option of H2O AutoML changed the mean macro-F1 by $-0.033$, and a single seed causes this change. In seed 3, the macro-F1 dropped from 0.583 to 0.423 and the recall of the normal class from 0.626 to 0.091. In the other four seeds, the change stays within $\pm0.007$. Neither form of balancing therefore improved the macro-F1 on MEMS. Note that Auto-sklearn also searches a class-weighting strategy internally, so that oversampling is the only balancing control shared by both frameworks.
+
+\subsection{Detection Quality on N-BaIoT Device 9}
+Table~\ref{tab:dev9} compares the methods on device 9 for the deduplicated and the raw variant. The left block shows the deduplicated variant with the macro-F1, the accuracy, and the mean recall over the eight classes that retain at least 11,000 unique vectors after cleaning (classes 2 and 5 to 11). The right block shows the raw variant, and the last row gives the accuracy ceiling.
+
+\textbf{1) Raw variant:} The ceiling is 0.718. Auto-sklearn reaches an accuracy of 0.711, which is 99\% of the ceiling. The random forest reaches 0.709, the decision tree 0.701, H2O AutoML 0.683, and the MLP 0.652. The standard deviation over seeds is at most 0.02. In macro-F1, Auto-sklearn exceeds the random forest by 0.003 in all five seeds, which is negligible in practice. H2O AutoML falls 0.032 behind the random forest (one seed won, four lost).
+
+\textbf{2) Deduplicated variant:} Accuracy is between 0.983 and 0.985 for Auto-sklearn, H2O AutoML, and the random forest, whereas the macro-F1 is only between 0.777 and 0.803. Accuracy therefore hides the failures on classes 1, 3, and 4. These classes retain about 26, 3, and 5 test samples in seed 0, so their recall changes in steps of about 4, 33, and 20\% per sample. On the eight remaining classes, the three methods cannot be distinguished: the mean recall is 0.985, 0.983, and 0.985, with a per-seed range of 0.979 to 0.986. The decision tree (0.972) and the MLP (0.903) are worse.
+
+The macro-F1 order is random forest (0.803), Auto-sklearn (0.792), and H2O AutoML (0.777). Table~\ref{tab:paired} shows Auto-sklearn minus random forest at $-0.011$ (two seeds won, three lost) and H2O AutoML minus random forest at $-0.026$ (none won, five lost). About 34 test samples from three classes drive this order.
+
+\textbf{3) Per-class recall:} Table~\ref{tab:perclass9} lists the recall of each class for Auto-sklearn, H2O AutoML, and the random forest. A value of 1.00 means that all test samples of the class were found. We do not rank classes 1, 3, and 4 of the raw variant, because their recall only reflects the label that a model assigns to an ambiguous vector. For example, class 1 has a recall of 0.00 for Auto-sklearn and the random forest but 0.80 for H2O AutoML (four of five seeds). The recall of the random forest for classes 3 and 4 alternates between 0 and 1 across seeds.
+\input{tables/table_dev9}
+\input{tables/table_perclass9}
+
+\subsection{Selected Models}
+Table~\ref{tab:models} lists the models that the frameworks selected in each setup. For H2O AutoML, it gives the type of the leader model, and for Auto-sklearn, it gives the ensemble size and the share of the ensemble weight per model type. Appendix~\ref{app:models} lists the selection of every seed for both frameworks.
+
+The leader of H2O AutoML was a stacked ensemble in 11 of 15 MEMS runs and in 5 of 10 device-9 runs. Stacked ensembles appear in two variants, one built from all models and one built from the best model of each family. The other leaders were single gradient-boosting models (GBM or XGBoost). On deduplicated device 9, all five leaders were GBM models, and on raw device 9, all five were stacked ensembles.
+
+Auto-sklearn returns a weighted ensemble with a median size between 12 and 21 members, depending on the setup. The dominant model type of Auto-sklearn depends on the data. On MEMS, linear models dominate under the random and block splits (LDA carries 65\% and 50\% of the weight), and $k$-nearest-neighbor models carry 45\% with oversampling. On device 9, random forests carry 92\% of the weight on deduplicated data and 75\% on raw data.
+\input{tables/table_models}
+
+\subsection{Cost}
+Table~\ref{tab:resources} lists five cost measures for each dataset and framework. Fit time is the wall-clock time of the search, including start-up. Peak memory is the peak sum of the resident set sizes of all processes. Models evaluated counts run-history entries for Auto-sklearn and leaderboard rows for H2O AutoML, and it is therefore not ranked. Model size and latency are defined in Section~\ref{sec:pipeline}. H2O AutoML finished within 24\,s of the budget, whereas Auto-sklearn exceeded it by up to 249\,s.
+
+Auto-sklearn evaluated 372 to 701 configurations on MEMS and 198 to 253 on device 9, whereas H2O AutoML evaluated 100 to 179 and 16 to 17 models. The final models differ most.
+\begin{itemize}
+\item \emph{Model size:} The median is 696\,MB on MEMS and 4.5\,GB on device 9 for Auto-sklearn, against 64\,MB and 15\,MB for H2O AutoML.
+\item \emph{Latency:} The median is 0.51 and 1.44\,ms per sample for Auto-sklearn, against 0.15 and 0.29\,ms for H2O AutoML.
+\item \emph{Baselines:} The median latency is 0.0001\,ms for the decision tree, 0.002\,ms for the MLP, and 0.013\,ms for the random forest.
+\end{itemize}
+The median peak memory is 3.1\,GB (MEMS) and 5.8\,GB (device 9) for Auto-sklearn, and 4.3 and 5.4\,GB for H2O AutoML, whose Java heap was limited to 4\,GB, and Appendix~\ref{app:results} lists the cost of every setup.
+\input{tables/table_resources}
+
+\subsection{Feature Reliance}
+Table~\ref{tab:pfi} shows the eight highest-ranked of the 20 features for the models selected on device 9 (deduplicated variant), and Appendix~\ref{app:models} lists all features. Each entry is the mean drop in macro-F1 over five seeds when the feature is shuffled.
+
+Both frameworks rely on the same few features of the traffic data. The three leading features and the five leading features are identical for the two frameworks when averaged over seeds. The feature \texttt{HH\_L1\_weight} leads, and shuffling it lowers the macro-F1 by 0.263 for Auto-sklearn and 0.254 for H2O AutoML. It is followed by \texttt{HH\_L3\_weight}, \texttt{HH\_L5\_weight}, \texttt{HH\_L1\_std}, and \texttt{HH\_L1\_magnitude}. The feature \texttt{HH\_L1\_weight} is among the three leading features in all ten runs.
+
+The three leading features carry 84\% (Auto-sklearn) and 79\% (H2O AutoML) of the total positive importance. Only 8 and 5 of the 20 features exceed an importance of 0.005. Beyond the leading features, the rankings agree only moderately. The Spearman correlation between the frameworks is between 0.28 and 0.67 per seed and 0.56 for the seed-averaged importance. Within a framework, the mean correlation between seeds is 0.61 (Auto-sklearn) and 0.64 (H2O AutoML). Interestingly, H2O AutoML assigns more importance to \texttt{HH\_L3\_weight} (0.136 against 0.057).
+
+For hand-built models on device 7, \cite{gummadi2024xaiiot} reports \texttt{HH\_L1\_weight} and \texttt{HH\_L1\_magnitude} as the two leading features under permutation importance for most models. It also reports \texttt{HH\_L1\_magnitude} as the most frequent top feature under SHAP. The same family of short-window statistics dominates in our results. The order and the device differ, and we therefore regard the agreement as qualitative.
+\input{tables/table_pfi}
+
+\subsection{Baseline Systems}
+We compare the AutoML frameworks with three default baselines, namely the random forest, the MLP, and the decision tree. Table~\ref{tab:paired} lists the paired differences, where A denotes Auto-sklearn, H denotes H2O AutoML, and a bold entry marks a first method that won in all five seeds.
+
+On MEMS, both frameworks exceed the decision tree in all five seeds, by 0.04 to 0.10, and they exceed the random forest by 0.015 to 0.035 under the random and the block split. Against the MLP, the margin is at most 0.018, and it is negative under oversampling. On deduplicated device 9, neither framework exceeds the random forest. Both exceed the MLP by 0.09 to 0.11 in all five seeds. On raw device 9, Auto-sklearn matches the random forest (difference $+0.003$), and H2O AutoML falls behind it.
+
+\subsection{Summary of Best Methods per Setup}
+Table~\ref{tab:summary} condenses the results of all setups into one comparison. For each dataset and setup, it lists the mean macro-F1, balanced accuracy, and accuracy of both frameworks. A check mark flags the better framework in each metric, and a tie marks both. The column ``Seeds won'' counts the seeds in which Auto-sklearn (A) or H2O AutoML (H) had the higher macro-F1, and the last column names the best of all methods, including the baselines.
+
+Auto-sklearn has the higher macro-F1 in four of the five setups, and H2O AutoML leads only under the MEMS block split, by 0.004. The accuracy gives a different picture on MEMS, where H2O AutoML leads in all three setups, whereas Auto-sklearn leads on device 9. The choice of metric can therefore change the ranking of the frameworks. Auto-sklearn won all five seeds on the MEMS random split and on raw device 9, and the other leads are four to one or closer. A baseline is the best method overall in two setups, namely the MLP under block splitting with oversampling and the random forest on deduplicated device 9.
+\input{tables/table_summary}

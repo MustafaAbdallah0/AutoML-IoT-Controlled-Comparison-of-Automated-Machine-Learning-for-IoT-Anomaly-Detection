@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{MEMS: mean $\pm$ standard deviation over five seeds for three protocols. Bold: highest mean per column.}
+\label{tab:mems}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Method & Macro-F1, random split & Macro-F1, block split & Macro-F1, block + oversampling & Balanced accuracy, block split \\
+\midrule
+Auto-sklearn & \textbf{0.689 $\pm$ 0.005} & 0.562 $\pm$ 0.063 & 0.545 $\pm$ 0.044 & \textbf{0.593 $\pm$ 0.067} \\
+H2O AutoML & 0.675 $\pm$ 0.003 & \textbf{0.566 $\pm$ 0.068} & 0.540 $\pm$ 0.047 & \textbf{0.593 $\pm$ 0.075} \\
+H2O AutoML, balanced & -- & 0.533 $\pm$ 0.087 & -- & 0.589 $\pm$ 0.070 \\
+Random forest & 0.654 $\pm$ 0.004 & 0.547 $\pm$ 0.053 & 0.538 $\pm$ 0.040 & 0.579 $\pm$ 0.064 \\
+MLP & 0.671 $\pm$ 0.007 & 0.556 $\pm$ 0.060 & \textbf{0.558 $\pm$ 0.063} & 0.586 $\pm$ 0.067 \\
+Decision tree & 0.592 $\pm$ 0.007 & 0.502 $\pm$ 0.022 & 0.498 $\pm$ 0.025 & 0.539 $\pm$ 0.042 \\
+Majority class & 0.225 $\pm$ 0.000 & 0.245 $\pm$ 0.014 & 0.245 $\pm$ 0.014 & 0.333 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table*}

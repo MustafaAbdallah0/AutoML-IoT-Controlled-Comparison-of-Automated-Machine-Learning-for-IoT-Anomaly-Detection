@@ -1,0 +1,202 @@
+{
+  "tag": "mems__random__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 4,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "random",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 4,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "random",
+    "seed": 4,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 15103,
+    "n_train": 15103,
+    "n_test": 6473,
+    "train_counts": {
+      "class_1": 7675,
+      "class_2": 4041,
+      "class_3": 3387
+    },
+    "test_counts": {
+      "class_1": 3290,
+      "class_2": 1732,
+      "class_3": 1451
+    }
+  },
+  "metrics": {
+    "accuracy": 0.7004480148308357,
+    "balanced_accuracy": 0.6818316854648395,
+    "macro_precision": 0.6825751885837334,
+    "macro_recall": 0.6818316854648395,
+    "macro_f1": 0.6818226144672529,
+    "weighted_f1": 0.698302539990459,
+    "mcc": 0.5149217251015862
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.7159976033553026,
+      "recall": 0.7264437689969605,
+      "f1": 0.7211828605914303,
+      "support": 3290
+    },
+    "class_2": {
+      "precision": 0.7895322939866369,
+      "recall": 0.8187066974595842,
+      "f1": 0.8038548752834466,
+      "support": 1732
+    },
+    "class_3": {
+      "precision": 0.5421956684092606,
+      "recall": 0.5003445899379738,
+      "f1": 0.5204301075268817,
+      "support": 1451
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      2390,
+      299,
+      601
+    ],
+    [
+      302,
+      1418,
+      12
+    ],
+    [
+      646,
+      79,
+      726
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1810.8,
+    "peak_rss_mb": 6363.2,
+    "peak_cpu_percent": 126.3,
+    "n_models_evaluated": 372,
+    "model_size_mb": 2467.29,
+    "predict_latency_ms_per_sample": 1.3945
+  },
+  "model_info": {
+    "n_ensemble_members": 14,
+    "members": [
+      {
+        "weight": 0.22,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.18,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 0727728b-bfb6-11f1-be34-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.694200 |   Number of target algorithm runs: 371 |   Number of successful target algorithm runs: 325 |   Number of crashed target algorithm runs: 8 |   Number of target algorithms that exceeded the time limit: 31 |   Number of target algorithms that exceeded the memory limit: 7 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-04T06:10:21",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

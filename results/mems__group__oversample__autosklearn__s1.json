@@ -1,0 +1,174 @@
+{
+  "tag": "mems__group__oversample__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "oversample",
+  "seed": 1,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "oversample",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 1,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 1,
+    "test_size": 0.3,
+    "train_dist": "oversample",
+    "n_features": 3,
+    "n_train_before_dist": 15885,
+    "n_train": 24285,
+    "n_test": 5691,
+    "train_counts": {
+      "class_1": 8095,
+      "class_2": 8095,
+      "class_3": 8095
+    },
+    "test_counts": {
+      "class_1": 2870,
+      "class_3": 1721,
+      "class_2": 1100
+    }
+  },
+  "metrics": {
+    "accuracy": 0.5290810050957653,
+    "balanced_accuracy": 0.5297251391154539,
+    "macro_precision": 0.5092503152119009,
+    "macro_recall": 0.5297251391154539,
+    "macro_f1": 0.5156778155395381,
+    "weighted_f1": 0.5228253837165061,
+    "mcc": 0.24127705773656502
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.5824812542603953,
+      "recall": 0.5954703832752614,
+      "f1": 0.5889042039972433,
+      "support": 2870
+    },
+    "class_2": {
+      "precision": 0.5281227173119065,
+      "recall": 0.6572727272727272,
+      "f1": 0.5856622114216282,
+      "support": 1100
+    },
+    "class_3": {
+      "precision": 0.41714697406340057,
+      "recall": 0.33643230679837305,
+      "f1": 0.37246703119974267,
+      "support": 1721
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      1709,
+      377,
+      784
+    ],
+    [
+      352,
+      723,
+      25
+    ],
+    [
+      873,
+      269,
+      579
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1891.1,
+    "peak_rss_mb": 2822.6,
+    "peak_cpu_percent": 126.1,
+    "n_models_evaluated": 592,
+    "model_size_mb": 695.84,
+    "predict_latency_ms_per_sample": 0.2683
+  },
+  "model_info": {
+    "n_ensemble_members": 7,
+    "members": [
+      {
+        "weight": 0.7,
+        "estimator": "AdaboostClassifier"
+      },
+      {
+        "weight": 0.14,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "RandomForest"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "GradientBoostingClassifier"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 71ff2cf9-bf2c-11f1-a192-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.908368 |   Number of target algorithm runs: 590 |   Number of successful target algorithm runs: 572 |   Number of crashed target algorithm runs: 3 |   Number of target algorithms that exceeded the time limit: 5 |   Number of target algorithms that exceeded the memory limit: 10 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-03T13:46:37",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

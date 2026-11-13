@@ -1,0 +1,311 @@
+{
+  "tag": "nbaiot9-raw__random__full__baseline-mlp",
+  "framework": "baseline-mlp",
+  "dataset": "nbaiot:9",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 3,
+  "split_info": {
+    "dataset": "nbaiot:9",
+    "kind": "nbaiot",
+    "device": 9,
+    "dedup": false,
+    "rows_raw": 209000,
+    "rows_final": 209000,
+    "split": "random",
+    "seed": 3,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 20,
+    "n_train_before_dist": 146300,
+    "n_train": 146300,
+    "n_test": 62700,
+    "train_counts": {
+      "class_7": 13300,
+      "class_2": 13300,
+      "class_10": 13300,
+      "class_11": 13300,
+      "class_5": 13300,
+      "class_4": 13300,
+      "class_6": 13300,
+      "class_8": 13300,
+      "class_9": 13300,
+      "class_3": 13300,
+      "class_1": 13300
+    },
+    "test_counts": {
+      "class_7": 5700,
+      "class_1": 5700,
+      "class_8": 5700,
+      "class_4": 5700,
+      "class_6": 5700,
+      "class_3": 5700,
+      "class_5": 5700,
+      "class_11": 5700,
+      "class_9": 5700,
+      "class_2": 5700,
+      "class_10": 5700
+    }
+  },
+  "metrics": {
+    "accuracy": 0.6513237639553429,
+    "balanced_accuracy": 0.651323763955343,
+    "macro_precision": 0.7496394275545217,
+    "macro_recall": 0.651323763955343,
+    "macro_f1": 0.6362999324230642,
+    "weighted_f1": 0.6362999324230642,
+    "mcc": 0.6529902358369611
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.2857142857142857,
+      "recall": 0.0010526315789473684,
+      "f1": 0.002097535395909806,
+      "support": 5700
+    },
+    "class_10": {
+      "precision": 0.7314444637580393,
+      "recall": 0.7382456140350877,
+      "f1": 0.7348293023661923,
+      "support": 5700
+    },
+    "class_11": {
+      "precision": 0.8590385033717642,
+      "recall": 0.6928070175438596,
+      "f1": 0.7670195202486162,
+      "support": 5700
+    },
+    "class_2": {
+      "precision": 1.0,
+      "recall": 0.7566666666666667,
+      "f1": 0.8614800759013282,
+      "support": 5700
+    },
+    "class_3": {
+      "precision": 0.24323285799675518,
+      "recall": 0.9994736842105263,
+      "f1": 0.3912506009202665,
+      "support": 5700
+    },
+    "class_4": {
+      "precision": 0.5,
+      "recall": 0.00017543859649122806,
+      "f1": 0.0003507541213609259,
+      "support": 5700
+    },
+    "class_5": {
+      "precision": 0.9787784679089027,
+      "recall": 0.9952631578947368,
+      "f1": 0.9869519832985386,
+      "support": 5700
+    },
+    "class_6": {
+      "precision": 0.9957105557627751,
+      "recall": 0.9366666666666666,
+      "f1": 0.9652865666244802,
+      "support": 5700
+    },
+    "class_7": {
+      "precision": 0.9962264150943396,
+      "recall": 0.7410526315789474,
+      "f1": 0.8498993963782696,
+      "support": 5700
+    },
+    "class_8": {
+      "precision": 0.9176701204144497,
+      "recall": 0.5749122807017544,
+      "f1": 0.7069356056520332,
+      "support": 5700
+    },
+    "class_9": {
+      "precision": 0.7382180330784279,
+      "recall": 0.7282456140350877,
+      "f1": 0.7331979157467102,
+      "support": 5700
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_10",
+    "class_11",
+    "class_2",
+    "class_3",
+    "class_4",
+    "class_5",
+    "class_6",
+    "class_7",
+    "class_8",
+    "class_9"
+  ],
+  "confusion_matrix": [
+    [
+      6,
+      3,
+      2,
+      0,
+      5665,
+      0,
+      24,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      4208,
+      0,
+      0,
+      0,
+      0,
+      19,
+      2,
+      2,
+      0,
+      1469
+    ],
+    [
+      2,
+      0,
+      3949,
+      0,
+      1440,
+      0,
+      14,
+      0,
+      6,
+      289,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      4313,
+      1380,
+      0,
+      5,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      5697,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      5694,
+      1,
+      4,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      5673,
+      18,
+      4,
+      0,
+      2
+    ],
+    [
+      10,
+      7,
+      0,
+      0,
+      328,
+      0,
+      16,
+      5339,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      1456,
+      0,
+      11,
+      1,
+      4224,
+      4,
+      0
+    ],
+    [
+      2,
+      0,
+      642,
+      0,
+      1762,
+      0,
+      17,
+      0,
+      0,
+      3277,
+      0
+    ],
+    [
+      0,
+      1533,
+      0,
+      0,
+      0,
+      0,
+      11,
+      1,
+      4,
+      0,
+      4151
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 71.7,
+    "predict_latency_ms_per_sample": 0.0018
+  },
+  "env": {
+    "timestamp_utc": "2026-10-04T03:28:10",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

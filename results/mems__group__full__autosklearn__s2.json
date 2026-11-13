@@ -1,0 +1,178 @@
+{
+  "tag": "mems__group__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "full",
+  "seed": 2,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 2,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 2,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 14511,
+    "n_train": 14511,
+    "n_test": 7065,
+    "train_counts": {
+      "class_1": 6422,
+      "class_2": 4674,
+      "class_3": 3415
+    },
+    "test_counts": {
+      "class_1": 4543,
+      "class_3": 1423,
+      "class_2": 1099
+    }
+  },
+  "metrics": {
+    "accuracy": 0.691861288039632,
+    "balanced_accuracy": 0.6339894533882827,
+    "macro_precision": 0.6557347406548432,
+    "macro_recall": 0.6339894533882827,
+    "macro_f1": 0.6437243198321654,
+    "weighted_f1": 0.6935117267057521,
+    "mcc": 0.4045118214648029
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.7622256031297544,
+      "recall": 0.7719568567026194,
+      "f1": 0.7670603674540681,
+      "support": 4543
+    },
+    "class_2": {
+      "precision": 0.7971014492753623,
+      "recall": 0.7006369426751592,
+      "f1": 0.7457627118644068,
+      "support": 1099
+    },
+    "class_3": {
+      "precision": 0.40787716955941256,
+      "recall": 0.4293745607870696,
+      "f1": 0.4183498801780212,
+      "support": 1423
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      3507,
+      168,
+      868
+    ],
+    [
+      310,
+      770,
+      19
+    ],
+    [
+      784,
+      28,
+      611
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1950.5,
+    "peak_rss_mb": 7991.0,
+    "peak_cpu_percent": 134.6,
+    "n_models_evaluated": 500,
+    "model_size_mb": 1053.65,
+    "predict_latency_ms_per_sample": 0.389
+  },
+  "model_info": {
+    "n_ensemble_members": 8,
+    "members": [
+      {
+        "weight": 0.8,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "LDA"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: f5dcff95-bf58-11f1-bbd6-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.693518 |   Number of target algorithm runs: 499 |   Number of successful target algorithm runs: 447 |   Number of crashed target algorithm runs: 21 |   Number of target algorithms that exceeded the time limit: 15 |   Number of target algorithms that exceeded the memory limit: 16 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-03T19:06:17",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Models selected by the frameworks over five seeds. H2O AutoML: type of the leader model. Auto-sklearn: ensemble size and weight share per model type.}
+\label{tab:models}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lp{1.8in}cp{1.9in}@{}}
+\toprule
+Setup & H2O AutoML: leader type and number of seeds & Auto-sklearn: members, median (range) & Auto-sklearn: share of ensemble weight \\
+\midrule
+MEMS, random split & Stacked (all models): 3, Stacked (best of family): 1, GBM: 1 & 19 (11--22) & LDA 65\%, linear SVC 15\%, AdaBoost 8\% \\
+MEMS, block split & XGBoost: 2, Stacked (all models): 1, Stacked (best of family): 1, GBM: 1 & 18 (8--25) & LDA 50\%, MLP 20\%, extra trees 20\% \\
+MEMS, block split with oversampling & Stacked (all models): 3, Stacked (best of family): 2 & 12 (7--24) & $k$-NN 45\%, gradient boosting 20\%, extra trees 18\% \\
+\midrule
+Device 9, deduplicated & GBM: 5 & 21 (15--23) & random forest 92\%, $k$-NN 4\%, gradient boosting 4\% \\
+Device 9, raw & Stacked (all models): 3, Stacked (best of family): 2 & 18 (13--23) & random forest 75\%, gradient boosting 25\% \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Configuration of the two frameworks. Both frameworks use the same budget, thread count, and seeds.}
+\label{tab:config}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{0.85in}p{1.2in}p{1.25in}@{}}
+\toprule
+Setting & Auto-sklearn & H2O AutoML \\
+\midrule
+Version & 0.15.0 & 3.46.0.12 \\
+Objective & Macro-F1 & Mean per-class error (leaderboard) \\
+Validation & Holdout, 67/33 & Cross-validation, five folds \\
+Ensemble & Up to 50 models & Stacked ensembles \\
+Budget & 1800\,s & 1800\,s \\
+Per-configuration limit & 120\,s & Not set \\
+Memory & 3072\,MB per run & 4\,GB heap \\
+Threads & 8 & 8 \\
+Seeds & 0 to 4 & 0 to 4 \\
+\bottomrule
+\end{tabular}
+\end{table}

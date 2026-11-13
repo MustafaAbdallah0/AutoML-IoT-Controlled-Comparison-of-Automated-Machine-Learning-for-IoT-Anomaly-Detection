@@ -1,0 +1,111 @@
+{
+  "tag": "mems__random__full__baseline-rf",
+  "framework": "baseline-rf",
+  "dataset": "mems",
+  "split": "random",
+  "train_dist": "full",
+  "seed": 0,
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "random",
+    "seed": 0,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 15103,
+    "n_train": 15103,
+    "n_test": 6473,
+    "train_counts": {
+      "class_1": 7675,
+      "class_2": 4041,
+      "class_3": 3387
+    },
+    "test_counts": {
+      "class_1": 3290,
+      "class_2": 1732,
+      "class_3": 1451
+    }
+  },
+  "metrics": {
+    "accuracy": 0.6919511818322261,
+    "balanced_accuracy": 0.6467078854031411,
+    "macro_precision": 0.6735335926063463,
+    "macro_recall": 0.6467078854031411,
+    "macro_f1": 0.6536008032836649,
+    "weighted_f1": 0.6817597601359099,
+    "mcc": 0.4905696429861261
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.6866861546638321,
+      "recall": 0.7854103343465045,
+      "f1": 0.732737842053027,
+      "support": 3290
+    },
+    "class_2": {
+      "precision": 0.7875436554132712,
+      "recall": 0.7811778290993071,
+      "f1": 0.7843478260869565,
+      "support": 1732
+    },
+    "class_3": {
+      "precision": 0.5463709677419355,
+      "recall": 0.3735354927636113,
+      "f1": 0.44371674171101105,
+      "support": 1451
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      2584,
+      274,
+      432
+    ],
+    [
+      361,
+      1353,
+      18
+    ],
+    [
+      818,
+      91,
+      542
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 0.9,
+    "predict_latency_ms_per_sample": 0.0172
+  },
+  "env": {
+    "timestamp_utc": "2026-10-02T22:53:25",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

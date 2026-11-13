@@ -1,0 +1,246 @@
+{
+  "tag": "mems__group__full__autosklearn",
+  "framework": "autosklearn",
+  "dataset": "mems",
+  "split": "group",
+  "train_dist": "full",
+  "seed": 1,
+  "config": {
+    "framework": "autosklearn",
+    "dataset": "mems",
+    "data_dir": "XAI_for_IoT_Systems/Datasets",
+    "split": "group",
+    "train_dist": "full",
+    "test_size": 0.3,
+    "no_dedup": false,
+    "max_rows": null,
+    "seed": 1,
+    "budget": 1800,
+    "threads": 8,
+    "per_run": null,
+    "ask_mem_mb": 3072,
+    "ask_refit": false,
+    "h2o_mem": "4G",
+    "h2o_balance_classes": false,
+    "h2o_max_models": null,
+    "h2o_exclude": null,
+    "pfi": false,
+    "out_dir": "results",
+    "overwrite": false
+  },
+  "split_info": {
+    "dataset": "mems",
+    "kind": "mems",
+    "device": null,
+    "dedup": false,
+    "rows_raw": 21576,
+    "rows_final": 21576,
+    "split": "group",
+    "seed": 1,
+    "test_size": 0.3,
+    "train_dist": "full",
+    "n_features": 3,
+    "n_train_before_dist": 15885,
+    "n_train": 15885,
+    "n_test": 5691,
+    "train_counts": {
+      "class_1": 8095,
+      "class_2": 4673,
+      "class_3": 3117
+    },
+    "test_counts": {
+      "class_1": 2870,
+      "class_3": 1721,
+      "class_2": 1100
+    }
+  },
+  "metrics": {
+    "accuracy": 0.5658056580565806,
+    "balanced_accuracy": 0.5294903117507672,
+    "macro_precision": 0.5398494192238156,
+    "macro_recall": 0.5294903117507672,
+    "macro_f1": 0.5094176928305568,
+    "weighted_f1": 0.5312628639925131,
+    "mcc": 0.2769042045620411
+  },
+  "per_class": {
+    "class_1": {
+      "precision": 0.5846645367412141,
+      "recall": 0.7651567944250871,
+      "f1": 0.6628433444008452,
+      "support": 2870
+    },
+    "class_2": {
+      "precision": 0.5581395348837209,
+      "recall": 0.6327272727272727,
+      "f1": 0.5930975713677035,
+      "support": 1100
+    },
+    "class_3": {
+      "precision": 0.47674418604651164,
+      "recall": 0.19058686809994188,
+      "f1": 0.27231216272312164,
+      "support": 1721
+    }
+  },
+  "labels": [
+    "class_1",
+    "class_2",
+    "class_3"
+  ],
+  "confusion_matrix": [
+    [
+      2196,
+      321,
+      353
+    ],
+    [
+      397,
+      696,
+      7
+    ],
+    [
+      1163,
+      230,
+      328
+    ]
+  ],
+  "resources": {
+    "wall_clock_fit_s": 1820.8,
+    "peak_rss_mb": 3014.7,
+    "peak_cpu_percent": 135.3,
+    "n_models_evaluated": 455,
+    "model_size_mb": 967.85,
+    "predict_latency_ms_per_sample": 1.437
+  },
+  "model_info": {
+    "n_ensemble_members": 25,
+    "members": [
+      {
+        "weight": 0.12,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.1,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.08,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.06,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.04,
+        "estimator": "MLPClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      },
+      {
+        "weight": 0.02,
+        "estimator": "ExtraTreesClassifier"
+      }
+    ],
+    "refit": false,
+    "statistics": "auto-sklearn results: |   Dataset name: 29773e4e-bf28-11f1-93ce-f02f7495df75 |   Metric: f1_macro |   Best validation score: 0.734278 |   Number of target algorithm runs: 454 |   Number of successful target algorithm runs: 421 |   Number of crashed target algorithm runs: 2 |   Number of target algorithms that exceeded the time limit: 25 |   Number of target algorithms that exceeded the memory limit: 6 | "
+  },
+  "pfi": null,
+  "env": {
+    "timestamp_utc": "2026-10-03T13:14:59",
+    "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "python": "3.9.25",
+    "cpu_model": "Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz",
+    "logical_cores": 20,
+    "physical_cores": 10,
+    "cores_usable": 20,
+    "ram_gb": 156.9,
+    "java": "openjdk version \"17.0.18-internal\" 2026-01-20",
+    "colab": false,
+    "packages": {
+      "autosklearn": "0.15.0",
+      "h2o": "3.46.0.12",
+      "sklearn": "0.24.2",
+      "numpy": "1.23.5",
+      "pandas": "1.5.3",
+      "scipy": "1.10.1",
+      "psutil": "7.0.0",
+      "joblib": "1.5.3"
+    }
+  }
+}

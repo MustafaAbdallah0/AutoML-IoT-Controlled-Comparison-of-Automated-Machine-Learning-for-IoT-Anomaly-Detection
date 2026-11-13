@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Resource use: median (minimum--maximum) over runs. Lower is better. Bold: lowest median per dataset; models evaluated is not ranked.}
+\label{tab:resources}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Dataset & Framework & Fit time (s) & Peak memory (GB) & Models evaluated & Model size (MB) & Latency (ms/sample) \\
+\midrule
+MEMS & Auto-sklearn & 1838 (1805--1950) & \textbf{3.1 (2.7--7.8)} & 647 (372--701) & 696 (20--2467) & 0.51 (0.09--1.44) \\
+MEMS & H2O AutoML & \textbf{1808 (1807--1819)} & 4.3 (3.1--6.0) & 124 (100--179) & \textbf{64 (0--472)} & \textbf{0.15 (0.10--0.43)} \\
+\midrule
+Device 9 & Auto-sklearn & 1859 (1808--2049) & 5.8 (5.0--7.4) & 223 (198--253) & 4521 (2549--6002) & 1.44 (0.80--2.52) \\
+Device 9 & H2O AutoML & \textbf{1815 (1813--1824)} & \textbf{5.4 (4.0--5.9)} & 16 (16--17) & \textbf{15 (5--34)} & \textbf{0.29 (0.24--0.71)} \\
+\bottomrule
+\end{tabular}
+\end{table*}

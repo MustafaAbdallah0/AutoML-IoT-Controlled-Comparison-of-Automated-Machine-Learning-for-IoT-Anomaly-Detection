@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{Comparison between prior work and AutoML-IoT in terms of the available features (to our reading of the cited works).}
+\label{tab:related}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{1.95in}ccccccc@{}}
+\toprule
+System & IoT data & Automated selection & Independent comparison & Data audit & Leakage-aware protocol & Cost measured & Explanation \\
+\midrule
+Auto-WEKA, TPOT, Auto-sklearn, H2O AutoML, AutoGluon-Tabular \cite{thornton2013,olson2016,feurer2015,ledell2020,erickson2020} & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
+AMLB benchmark \cite{gijsbers2022} & \xmark & \cmark & \cmark & \xmark & \xmark & \cmark & \xmark \\
+XAI-IoT \cite{gummadi2024xaiiot} & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+AutoAI-IDS \cite{guntur2025autoai} & \xmark & \cmark & \cmark & \xmark & \xmark & \cmark & \xmark \\
+Earlier AutoML study \cite{velnambi2026} & \xmark & \cmark & \cmark & \xmark & \xmark & \cmark & \xmark \\
+CICIDS2017 audits \cite{engelen2021,lanvin2023} & \xmark & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\
+Pitfall studies \cite{arp2022,kapoor2023} & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark & \xmark \\
+\midrule
+\textbf{AutoML-IoT (this work)} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+\bottomrule
+\end{tabular}
+\end{table*}

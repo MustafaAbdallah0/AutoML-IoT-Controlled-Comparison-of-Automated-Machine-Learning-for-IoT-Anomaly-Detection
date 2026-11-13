@@ -1,0 +1,70 @@
+\section{The AutoML-IoT Pipeline}\label{sec:pipeline}
+Figure~\ref{fig:pipeline} shows the flow of AutoML-IoT, and the following subsections describe each step. The pipeline consists of six consecutive steps, and every step consumes the artifacts of the previous step. All steps use fixed seeds, so that every run is reproducible up to the nondeterminism of searches that stop on a wall-clock limit. We describe the steps in this section and evaluate them in Section~\ref{sec:evaluation}.
+
+\subsection{Step 1: Data Audit and Cleaning}
+The audit computes the unique feature vectors of a dataset and the counts $n_{v,c}$. It derives the set of ambiguous vectors, the accuracy ceiling of Equation~\eqref{eq:ceiling}, and, for time-ordered data, the contiguous blocks of identical labels. Cleaning removes exact duplicates and the rows of ambiguous vectors and thereby produces a cleaned variant of the data. The raw variant is retained, because earlier studies used it and because it allows us to measure the effect of cleaning, as summarized in Algorithm~\ref{alg:audit}.
+
+\begin{algorithm}[t]
+\caption{Data Audit and Cleaning}
+\label{alg:audit}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Labeled dataset $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^{N}$
+\Ensure $\mathcal{D}_{\mathrm{raw}}$, $\mathcal{D}_{\mathrm{clean}}$, ceiling $A_{\max}$, blocks $g$
+\State Compute the unique vectors $V$ and the counts $n_{v,c}$
+\State $V_{\mathrm{amb}}\leftarrow\{v\in V:\ |\{c: n_{v,c}>0\}|\ge 2\}$
+\State $A_{\max}\leftarrow \frac{1}{N}\sum_{v}\max_{c} n_{v,c}$
+\State $\mathcal{D}_{\mathrm{dup}}\leftarrow$ $\mathcal{D}$ without exact duplicate rows
+\State $\mathcal{D}_{\mathrm{clean}}\leftarrow$ $\mathcal{D}_{\mathrm{dup}}$ without rows whose vector is in $V_{\mathrm{amb}}$
+\If{$\mathcal{D}$ is time ordered}
+  \State $g(i)\leftarrow$ index of the run of identical labels that contains row $i$
+\EndIf
+\State \Return $\mathcal{D}$, $\mathcal{D}_{\mathrm{clean}}$, $A_{\max}$, $g$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Step 2: Protocol Construction}
+For each dataset variant, this step creates the protocols of Section~\ref{sec:background} with a fixed seed. For time-ordered data, the block protocol holds out about 30\% of the blocks of every class, so that every class remains present in both partitions. The training distribution is either unchanged or oversampled to the size of the majority class. All frameworks and baselines receive identical training and test arrays, which removes differences in data handling as a confounding factor.
+
+\subsection{Step 3: Controlled Search}
+Auto-sklearn and H2O AutoML run with an identical wall-clock budget, an identical number of threads, and the same seed. Settings that cannot be equalized, namely the optimization objective and the validation strategy, are documented and reported (Table~\ref{tab:config}). Default baselines are trained on the same arrays without a search, and Algorithm~\ref{alg:run} summarizes the control flow.
+
+\begin{algorithm}[t]
+\caption{Controlled Comparison}
+\label{alg:run}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Variants $\{\mathcal{D}_{\mathrm{raw}},\mathcal{D}_{\mathrm{clean}}\}$, protocols $\Pi$, distributions $\mathcal{T}$, frameworks $\mathcal{F}$, baselines $\mathcal{B}$, seeds $\mathcal{S}$, budget $T_{\max}$, threads $p$
+\Ensure Records $\mathcal{R}$
+\State $\mathcal{R}\leftarrow\emptyset$
+\For{each variant $\mathcal{D}'$, protocol $\pi\in\Pi$, distribution $\tau\in\mathcal{T}$, seed $s\in\mathcal{S}$}
+  \State $(\mathcal{D}_{\mathrm{tr}},\mathcal{D}_{\mathrm{te}})\leftarrow \textsc{Split}(\mathcal{D}',\pi,s)$
+  \State $\mathcal{D}_{\mathrm{tr}}\leftarrow \textsc{Distribute}(\mathcal{D}_{\mathrm{tr}},\tau,s)$
+  \For{each framework $f\in\mathcal{F}$}
+    \State $m_f\leftarrow \textsc{Search}(f,\mathcal{D}_{\mathrm{tr}},T_{\max},p,s)$
+  \EndFor
+  \For{each baseline $b\in\mathcal{B}$}
+    \State $m_b\leftarrow \textsc{Fit}(b,\mathcal{D}_{\mathrm{tr}},s)$
+  \EndFor
+  \For{each model $m\in\{m_f\}\cup\{m_b\}$}
+    \State Append quality, per-class recall, and cost of $m$ on $\mathcal{D}_{\mathrm{te}}$ to $\mathcal{R}$
+  \EndFor
+  \State Compute permutation importance of $m_f$ for each $f\in\mathcal{F}$ if requested
+\EndFor
+\State \Return $\mathcal{R}$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Step 4: Measurement}
+Every model is evaluated with the metrics of Section~\ref{sec:background}, and we take the cost measurements as follows. The fit time is the wall-clock time of the search, including the start-up of the framework. The peak memory is the maximum, over samples taken every 0.5\,s, of the summed resident set sizes of the process and all its children. This sum includes the Java process of H2O AutoML and the worker processes of Auto-sklearn. The model size is the size of the serialized model on disk. The latency is the time that a batch of up to 5,000 test samples needs for prediction, divided by the batch size, and it includes the overhead of the framework.
+
+\subsection{Step 5: Explanation}
+We explain the selected models by permutation importance~\cite{altmann2010}. For a feature $j$, the importance is the drop of the macro-averaged F1 score when the values of $j$ are shuffled,
+\begin{equation}
+I_j=\mathrm{MF1}(\mathcal{D}_{\mathrm{te}})-\frac{1}{R}\sum_{r=1}^{R}\mathrm{MF1}\big(\mathcal{D}^{(j,r)}_{\mathrm{te}}\big),
+\label{eq:pfi}
+\end{equation}
+where $\mathcal{D}^{(j,r)}_{\mathrm{te}}$ is the test set with feature $j$ shuffled in repetition $r$. We use a random subset of 3,000 test rows and $R=3$ repetitions. To compare frameworks, we compute the Spearman rank correlation of the importance vectors, the overlap of the leading features, and the stability across seeds. Because correlated features can distort permutation importance~\cite{strobl2008}, we interpret the leading features and do not interpret the exact order of features with near-zero importance.
+
+\subsection{Step 6: Paired Comparison and Reporting}
+Methods are compared by the paired differences of Equation~\eqref{eq:paired} and the number of seeds won. Tables report the mean and the sample standard deviation over five seeds, and bold type marks the best value of a column. With five seeds, the smallest attainable two-sided Wilcoxon $p$-value is 0.0625. We therefore report effect sizes and win counts and declare no difference significant.

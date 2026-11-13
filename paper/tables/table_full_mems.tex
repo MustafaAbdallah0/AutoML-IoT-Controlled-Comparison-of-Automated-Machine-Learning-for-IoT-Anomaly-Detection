@@ -1,0 +1,37 @@
+\begin{table*}[t]
+\centering
+\caption{Complete results on MEMS: mean $\pm$ standard deviation over five seeds. Bold: highest mean per column and setup.}
+\label{tab:fullmems}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Method & Accuracy & Bal. acc. & Macro-P & Macro-R & Macro-F1 & Weighted F1 & MCC \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{MEMS, random split}} \\
+Auto-sklearn & 0.711 $\pm$ 0.006 & \textbf{0.687 $\pm$ 0.007} & 0.695 $\pm$ 0.008 & \textbf{0.687 $\pm$ 0.007} & \textbf{0.689 $\pm$ 0.005} & \textbf{0.707 $\pm$ 0.005} & 0.530 $\pm$ 0.009 \\
+H2O AutoML & \textbf{0.720 $\pm$ 0.002} & 0.666 $\pm$ 0.002 & \textbf{0.718 $\pm$ 0.005} & 0.666 $\pm$ 0.002 & 0.675 $\pm$ 0.003 & 0.705 $\pm$ 0.003 & \textbf{0.537 $\pm$ 0.003} \\
+Random forest & 0.693 $\pm$ 0.003 & 0.647 $\pm$ 0.003 & 0.675 $\pm$ 0.005 & 0.647 $\pm$ 0.003 & 0.654 $\pm$ 0.004 & 0.682 $\pm$ 0.003 & 0.493 $\pm$ 0.005 \\
+MLP & 0.718 $\pm$ 0.004 & 0.663 $\pm$ 0.005 & 0.716 $\pm$ 0.005 & 0.663 $\pm$ 0.005 & 0.671 $\pm$ 0.007 & 0.702 $\pm$ 0.006 & 0.534 $\pm$ 0.006 \\
+Decision tree & 0.613 $\pm$ 0.007 & 0.593 $\pm$ 0.007 & 0.592 $\pm$ 0.006 & 0.593 $\pm$ 0.007 & 0.592 $\pm$ 0.007 & 0.614 $\pm$ 0.006 & 0.377 $\pm$ 0.011 \\
+Majority class & 0.508 $\pm$ 0.000 & 0.333 $\pm$ 0.000 & 0.169 $\pm$ 0.000 & 0.333 $\pm$ 0.000 & 0.225 $\pm$ 0.000 & 0.343 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{MEMS, block split}} \\
+Auto-sklearn & 0.608 $\pm$ 0.058 & \textbf{0.593 $\pm$ 0.067} & 0.567 $\pm$ 0.066 & \textbf{0.593 $\pm$ 0.067} & 0.562 $\pm$ 0.063 & 0.606 $\pm$ 0.069 & 0.346 $\pm$ 0.080 \\
+H2O AutoML & \textbf{0.621 $\pm$ 0.073} & \textbf{0.593 $\pm$ 0.075} & \textbf{0.571 $\pm$ 0.072} & \textbf{0.593 $\pm$ 0.075} & \textbf{0.566 $\pm$ 0.068} & \textbf{0.613 $\pm$ 0.080} & \textbf{0.355 $\pm$ 0.101} \\
+H2O AutoML, balanced & 0.570 $\pm$ 0.130 & 0.589 $\pm$ 0.070 & \textbf{0.571 $\pm$ 0.067} & 0.589 $\pm$ 0.070 & 0.533 $\pm$ 0.087 & 0.553 $\pm$ 0.140 & 0.349 $\pm$ 0.089 \\
+Random forest & 0.593 $\pm$ 0.056 & 0.579 $\pm$ 0.064 & 0.548 $\pm$ 0.054 & 0.579 $\pm$ 0.064 & 0.547 $\pm$ 0.053 & 0.591 $\pm$ 0.065 & 0.321 $\pm$ 0.078 \\
+MLP & 0.617 $\pm$ 0.067 & 0.586 $\pm$ 0.067 & 0.568 $\pm$ 0.063 & 0.586 $\pm$ 0.067 & 0.556 $\pm$ 0.060 & 0.606 $\pm$ 0.072 & 0.349 $\pm$ 0.084 \\
+Decision tree & 0.529 $\pm$ 0.028 & 0.539 $\pm$ 0.042 & 0.505 $\pm$ 0.028 & 0.539 $\pm$ 0.042 & 0.502 $\pm$ 0.022 & 0.539 $\pm$ 0.038 & 0.251 $\pm$ 0.052 \\
+Majority class & 0.581 $\pm$ 0.052 & 0.333 $\pm$ 0.000 & 0.194 $\pm$ 0.017 & 0.333 $\pm$ 0.000 & 0.245 $\pm$ 0.014 & 0.429 $\pm$ 0.062 & 0.000 $\pm$ 0.000 \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{MEMS, block split with oversampling}} \\
+Auto-sklearn & 0.563 $\pm$ 0.048 & 0.597 $\pm$ 0.065 & 0.548 $\pm$ 0.051 & 0.597 $\pm$ 0.065 & 0.545 $\pm$ 0.044 & 0.569 $\pm$ 0.053 & 0.325 $\pm$ 0.085 \\
+H2O AutoML & \textbf{0.577 $\pm$ 0.048} & 0.575 $\pm$ 0.059 & 0.542 $\pm$ 0.047 & 0.575 $\pm$ 0.059 & 0.540 $\pm$ 0.047 & 0.579 $\pm$ 0.058 & 0.308 $\pm$ 0.068 \\
+Random forest & 0.559 $\pm$ 0.043 & 0.585 $\pm$ 0.062 & 0.537 $\pm$ 0.045 & 0.585 $\pm$ 0.062 & 0.538 $\pm$ 0.040 & 0.566 $\pm$ 0.050 & 0.309 $\pm$ 0.078 \\
+MLP & 0.573 $\pm$ 0.066 & \textbf{0.606 $\pm$ 0.074} & \textbf{0.556 $\pm$ 0.067} & \textbf{0.606 $\pm$ 0.074} & \textbf{0.558 $\pm$ 0.063} & \textbf{0.581 $\pm$ 0.071} & \textbf{0.339 $\pm$ 0.100} \\
+Decision tree & 0.518 $\pm$ 0.030 & 0.545 $\pm$ 0.048 & 0.502 $\pm$ 0.033 & 0.545 $\pm$ 0.048 & 0.498 $\pm$ 0.025 & 0.529 $\pm$ 0.040 & 0.254 $\pm$ 0.063 \\
+Majority class & 0.581 $\pm$ 0.052 & 0.333 $\pm$ 0.000 & 0.194 $\pm$ 0.017 & 0.333 $\pm$ 0.000 & 0.245 $\pm$ 0.014 & 0.429 $\pm$ 0.062 & 0.000 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table*}

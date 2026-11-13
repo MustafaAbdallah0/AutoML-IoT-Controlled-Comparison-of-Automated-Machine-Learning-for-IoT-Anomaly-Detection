@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Device 9: mean $\pm$ standard deviation over five seeds. Recall, 8 classes: mean recall over classes 2 and 5--11. Bold: highest mean per column.}
+\label{tab:dev9}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Method & \multicolumn{3}{c}{Deduplicated} & \multicolumn{2}{c}{Raw} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+ & Macro-F1 & Accuracy & Recall, 8 classes & Macro-F1 & Accuracy \\
+\midrule
+Auto-sklearn & 0.792 $\pm$ 0.022 & \textbf{0.985 $\pm$ 0.001} & \textbf{0.985 $\pm$ 0.001} & \textbf{0.698 $\pm$ 0.000} & \textbf{0.711 $\pm$ 0.001} \\
+H2O AutoML & 0.777 $\pm$ 0.017 & 0.983 $\pm$ 0.002 & 0.983 $\pm$ 0.002 & 0.664 $\pm$ 0.020 & 0.683 $\pm$ 0.016 \\
+Random forest & \textbf{0.803 $\pm$ 0.018} & 0.984 $\pm$ 0.000 & \textbf{0.985 $\pm$ 0.000} & 0.696 $\pm$ 0.001 & 0.709 $\pm$ 0.001 \\
+MLP & 0.685 $\pm$ 0.026 & 0.884 $\pm$ 0.002 & 0.903 $\pm$ 0.002 & 0.637 $\pm$ 0.001 & 0.652 $\pm$ 0.001 \\
+Decision tree & 0.778 $\pm$ 0.017 & 0.970 $\pm$ 0.001 & 0.972 $\pm$ 0.001 & 0.687 $\pm$ 0.001 & 0.701 $\pm$ 0.001 \\
+Majority class & 0.025 $\pm$ 0.000 & 0.162 $\pm$ 0.000 & 0.125 $\pm$ 0.000 & 0.015 $\pm$ 0.000 & 0.091 $\pm$ 0.000 \\
+\midrule
+Accuracy ceiling (raw) & -- & -- & -- & -- & 0.718 \\
+\bottomrule
+\end{tabular}
+\end{table*}
