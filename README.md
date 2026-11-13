@@ -55,10 +55,6 @@ Intel Core i9-10900X (10 cores, 20 threads), 156.9 GB RAM, Linux 6.8.0, Python 3
 - **Class names.** The integer labels follow the class order documented for the XAI-IoT datasets (MEMS: 1 normal, 2 near-failure, 3 failure; N-BaIoT: 1 benign, 2 to 6 Gafgyt, 7 to 11 Mirai). Confirm the mapping with the dataset authors if it is critical.
 - **Reproducibility.** Searches that stop on a wall-clock limit are not exactly reproducible, even with fixed seeds, so a re-run gives similar but not identical numbers.
 
-## License
-
-Code: MIT (see `LICENSE`). Choose the license of the result files and check that it is compatible with the license of the XAI-IoT datasets from which they are derived.
-
 ## Citation
 
 TODO: add the BibTeX entry of the paper after publication.
